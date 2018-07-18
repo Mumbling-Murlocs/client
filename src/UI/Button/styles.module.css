@@ -11,7 +11,7 @@
 }
 
 .formButton {
-    composes: common;
+    /* composes: common; */
     border: 2px solid #E49D39;
     color: #ffffff;
     background: #E49D39; 
