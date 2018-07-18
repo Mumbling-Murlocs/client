@@ -7,7 +7,7 @@
 
 
 .loginError {
-    composes: errorMessage;
+    /* composes: errorMessage; */
     color: rgb(240, 70, 70);
     margin-bottom: 10px;
 }

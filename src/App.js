@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Dashboard from './Components/Dashboard/DashboardContainer'
+import Switchboard from './Components/Switchboard'
 
 class App extends Component {
   render() {
     return (
-      <Dashboard/>
-    );
+      <Switchboard />
+    )
   }
 }
 
