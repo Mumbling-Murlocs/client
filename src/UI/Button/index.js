@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './styles.module.css'
+import FormButton from './Button.styles.js'
 
 
 const Button = (props) => {
     return (
         <React.Fragment>
-            <button className={styles.formButton} id="submit">{props.text}</button>
+            <FormButton id="submit">{props.text}</FormButton>
         </React.Fragment>
     )
 }

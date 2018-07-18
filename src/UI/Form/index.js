@@ -1,25 +1,26 @@
 import React from 'react';
 import Button from './../Button';
-import styles from './form.module.css'
+import FormStyles from './Form.styles'
 
 
 
 
 
 const Form = (props) => {
-    const { onSubmit, title } = props
+    const { onSubmit, title, loginError } = props
 
     return(
         <React.Fragment>
-            <form className={styles.form} onSubmit={onSubmit}>
-                <h3 className={styles.formTitle}>{title}</h3>
+            <FormStyles.FormBody onSubmit={onSubmit}>
+                <FormStyles.FormTitle>{title}</FormStyles.FormTitle>
                 { props.children }
-                <div className={styles.submitBox}>
+                <FormStyles.ErrorMessage>{loginError}</FormStyles.ErrorMessage>
+                <div >
                     
                   
                 </div>
                     
-            </form>
+            </FormStyles.FormBody>
         </React.Fragment>
     )
 }

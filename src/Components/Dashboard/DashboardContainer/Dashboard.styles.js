@@ -1,4 +1,4 @@
-import { variables } from '../../Assets/Styles';
+import { variables } from '../../../Assets/Styles';
 import styled from 'styled-components';
 
 const DashboardLayout = styled.div`
