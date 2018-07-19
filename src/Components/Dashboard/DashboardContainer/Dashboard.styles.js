@@ -1,18 +1,19 @@
-import { variables } from '../../../Assets/Styles';
+import { styleVariables } from '../../../Assets/Styles';
 import styled from 'styled-components';
+const { colors } = styleVariables
 
 const DashboardLayout = styled.div`
     display: grid;
     grid-template-columns: 1fr 4fr;
     height: 100%;
-    background: ${variables.colors.primary};
+    background: ${colors.primary};
 `
 
 const Header = styled.div`
     width: 100%;
     height: 7.5%;
-    background: ${variables.colors.primary};
-    color: ${variables.colors.white};
+    background: ${colors.primary};
+    color: ${colors.white};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,11 +25,11 @@ const Header = styled.div`
 
 
 const AppName = styled.div`
-    background: ${variables.colors.primary};
+    background: ${colors.primary};
 `
 
 const SidePanel = styled.div`
-    background: ${variables.colors.dark};
+    background: ${colors.dark};
 `
 
 export {

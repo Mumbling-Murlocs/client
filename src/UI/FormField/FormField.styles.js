@@ -1,7 +1,7 @@
-import { variables } from '../../Assets/Styles';
+import { styleVariables } from '../../Assets/Styles';
 import styled from 'styled-components';
 
-const {colors} = variables
+const {colors} = styleVariables
 
 const Label = styled.label`
     width: 100%;
@@ -19,10 +19,19 @@ const Input = styled.input`
     background: ${colors.white};
     box-sizing: border-box;
     color: ${colors.primary};
-    &:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 30px #ffffff inset;
-        color: black;
+    
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+        -webkit-transition-delay: 9999s;
+        -webkit-text-fill-color: ${colors.primary};
     }
+    // &:-webkit-autofill {
+    //     -webkit-box-shadow: 0 0 0 30px #ffffff inset;
+    //     color: black;
+    // }
 
     & span {
         font-style: italic

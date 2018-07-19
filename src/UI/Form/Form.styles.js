@@ -1,4 +1,4 @@
-import { variables } from '../../Assets/Styles';
+import { styleVariables } from '../../Assets/Styles';
 import styled from 'styled-components';
 
 const ErrorMessage = styled.p`
@@ -9,7 +9,7 @@ const ErrorMessage = styled.p`
 `
 
 const FormBody = styled.form`
-    background-color: ${variables.colors.white}
+    background-color: ${styleVariables.colors.white}
     padding: 30px;
     border-radius: 5px;
     width: 350px;
@@ -23,7 +23,7 @@ const FormBody = styled.form`
 
 `
 const FormTitle = styled.h3`
-    color: ${variables.colors.primary};
+    color: ${styleVariables.colors.primary};
     padding-bottom: 30px;
     margin: 0 0;
 `
