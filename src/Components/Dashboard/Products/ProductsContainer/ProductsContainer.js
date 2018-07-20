@@ -39,6 +39,9 @@ class ProductsContainer extends Component {
 
     render(){
 
+        const {products} = store.getState()
+
+
     // const {products} = store.getState()
     const products = [
         {companyId: "1",
@@ -59,6 +62,7 @@ class ProductsContainer extends Component {
             stockQty: 20}
     ]
 console.log(products)
+
         return (
             <Fragment>
                 <Header>

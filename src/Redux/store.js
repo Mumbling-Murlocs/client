@@ -10,7 +10,8 @@ const initialState = {
     clients: [],
     staff: [],
     loginError: null,
-    loggedIn: false
+    loggedIn: false,
+    path: null
 }
 
 // These are the reducers/actions that change the state ("setState")
@@ -26,6 +27,9 @@ const reducer = (state, action) => {
 
         case 'set_loggedIn':
             return { ...state, loggedIn: action.loggedIn }
+
+        case 'set_path':
+            return { ...state, path: action.path }
 
         default:
             if (!action.type.match(/@@redux.*/)) {

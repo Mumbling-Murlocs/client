@@ -10,7 +10,7 @@ import store from '../../Redux/store'
 class AuthenticationContainer extends Component {
 
     get storeUser() {
-        return JSON.parse(localStorage.user)
+        return localStorage.user && JSON.parse(localStorage.user)
     }
 
     set storeUser(userDetails) {
@@ -39,8 +39,8 @@ class AuthenticationContainer extends Component {
                 type: 'set_loggedIn',
                 loggedIn: true
             })
-
             this.storeUser = userDetails
+            this.props.history.push('/dashboard')
         } catch (error) {
             store.dispatch({
                 type: 'set_loginError',
