@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import MenuContainer from '../Menu/MenuContainer/MenuContainer';
 import OrdersContainer from '../Orders/OrdersContainer/OrdersContainer';
+import ProductsContainer from '../Products/ProductsContainer/ProductsContainer';
 import { DashboardLayout, Header, SidePanel } from './Dashboard.styles.js'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 
 
@@ -10,8 +11,6 @@ class Dashboard extends Component {
 
     render(){
         return(
-       
-            <Router>
                 <DashboardLayout>
                     <SidePanel>
                         <Header>
@@ -21,10 +20,9 @@ class Dashboard extends Component {
                     </SidePanel>
                     <div>   
                         <Route path='/dashboard/orders' component={OrdersContainer} />
+                        <Route path='/dashboard/products' component={ProductsContainer} />
                     </div>
                 </DashboardLayout>
-            </Router>
-     
         )
     }
 

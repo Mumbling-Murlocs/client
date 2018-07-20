@@ -1,6 +1,6 @@
 
-import variables from './Variables'
+import styleVariables from './styleVariables'
 
 export {
-    variables
+    styleVariables
 }

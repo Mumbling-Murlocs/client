@@ -1,5 +1,5 @@
 import React from 'react';
-import FormFieldStyles from './FormField.styles'
+import TextAreaStyles from './TextArea.styles'
 
 
 
@@ -11,15 +11,14 @@ const FormField = (props) => {
     let type = props.type || null
     let autoFocus = props.autoFocus || null
     let name = props.name || null
-    let step = props.step || null
     let optional = props.optional ? ' (optional)' : null
 
 
 
     return (
         <React.Fragment>
-            <FormFieldStyles.Label >{label}<span>{optional}</span></FormFieldStyles.Label>
-            <FormFieldStyles.Input step={step} autoComplete='nope' placeholder={props.placeholder} onChange={onChange} type={type} autoFocus={autoFocus} name={name} />
+            <TextAreaStyles.Label >{label}<span>{optional}</span></TextAreaStyles.Label>
+            <TextAreaStyles.Input autoComplete='nope' placeholder={props.placeholder} onChange={onChange} type={type} autoFocus={autoFocus} name={name} />
         </React.Fragment>
     )
 }

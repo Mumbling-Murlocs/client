@@ -10,7 +10,7 @@ const Label = styled.label`
     color: ${colors.primary};
     font-size: 0.8rem;
 `
-const Input = styled.input`
+const Input = styled.textarea`
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid ${colors.primary};
