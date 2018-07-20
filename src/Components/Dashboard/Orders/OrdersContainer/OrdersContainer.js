@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Styles from './OrdersContainer.styles'
+import { LogoBackground, Window} from './OrdersContainer.styles'
 
 
 
@@ -7,8 +7,9 @@ class OrdersContainer extends Component {
 
     render() {
         return (
-            <Styles.Example>
-            </Styles.Example>
+            <Window>
+                
+            </Window>
         )
     }
 }

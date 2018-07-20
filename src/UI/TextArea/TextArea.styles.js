@@ -16,6 +16,7 @@ const Input = styled.textarea`
     border: 1px solid ${colors.primary};
     // border-bottom: 1px solid rgb(40, 112, 153);
     width: 100%;
+    height: 100px;
     background: ${colors.white};
     box-sizing: border-box;
     color: ${colors.primary};
