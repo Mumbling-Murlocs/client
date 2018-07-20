@@ -16,10 +16,8 @@ const FormBody = styled.form`
     height: auto;
     display: flex;
     align-items: center;
-    display: flex;
     flex-direction: column;
     text-align: left;
-    margin: 100px auto;
 
 `
 const FormTitle = styled.h3`

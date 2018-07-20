@@ -1,5 +1,5 @@
 import helpers from '../Helpers'
-import store from './store'
+
 
 const {api} = helpers
 
@@ -39,7 +39,6 @@ const productsCrud = (state, action) => {
 
             return api.products.delete(productId, productOwnerId, () => {
                 const index = state.products.findIndex(product => product._id == productId)
-         
 
                 if(index >= 0) {
                     const newProductsArray = [...state.products]
