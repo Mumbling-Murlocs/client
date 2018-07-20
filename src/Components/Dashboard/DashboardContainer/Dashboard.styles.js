@@ -10,8 +10,10 @@ const DashboardLayout = styled.div`
 `
 
 const Header = styled.div`
+    position: relative;
     width: 100%;
     height: 7.5%;
+    z-index: 50;
     background: ${colors.primary};
     color: ${colors.white};
     display: flex;
@@ -30,6 +32,8 @@ const AppName = styled.div`
 
 const SidePanel = styled.div`
     background: ${colors.dark};
+    position: relative;
+    
 `
 
 export {

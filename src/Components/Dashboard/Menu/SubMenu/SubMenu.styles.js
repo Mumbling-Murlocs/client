@@ -11,8 +11,13 @@ const SubMenuStyle = styled.div`
     height: 100%;
     background: ${colors.dark};
     color: ${colors.white};
-    padding-top: 40px;
+    padding-top: 100px;
     z-index: 50;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 `
+
+
 
 export { SubMenuStyle }

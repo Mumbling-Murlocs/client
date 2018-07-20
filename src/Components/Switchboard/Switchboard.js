@@ -18,15 +18,28 @@ const Switchboard = (props) => {
                     <Route path='/' component={ AuthenticationContainer } />
 
                     <Route exact path='/' render={(rProps) => {
-                        if (loggedIn){
-                            return <Redirect to="/dashboard" />
+                        if (store.getState().loggedIn){
+                                return <Redirect to="/dashboard" />
+                            } else {
+                                return <Redirect to="/login" />     
+                            }
+                    }} />
+
+                    <Route path='/register' render={(rProps) => (
+                        <AuthenticationContainer {...rProps}  />
+                    )} />
+
+                    <Route path='/login' render={(rProps) => (
+                        <AuthenticationContainer {...rProps}  />
+                    )} />
+                    
+                    <Route path='/dashboard' render={() => {
+                        if (store.getState().loggedIn) {
+                            return <Dashboard />
                         } else {
-                            return <Redirect to="/login" />     
+                            return <Redirect to="/login" />
                         }
                     }} />
-                    <Route path='/register' component={ AuthenticationContainer } />
-                    <Route path='/login' component={ AuthenticationContainer } />
-                    <Route path='/dashboard' component={ Dashboard } />
                 </Fragment>
             </Router>
         
