@@ -33,9 +33,13 @@ const Switchboard = (props) => {
                         <AuthenticationContainer {...rProps}  />
                     )} />
 
-                    <Route path='/create-company' render={(rProps) => (
-                        <AuthenticationContainer {...rProps} />
-                    )} />
+                    <Route path='/create-company' render={(rProps) => {
+                        if (!store.getState().loggedIn) {
+                            return <Redirect to="/login" />
+                        } else {
+                            <AuthenticationContainer {...rProps} />
+                        }
+                    }} />
                     
                     <Route path='/dashboard' render={() => {
                         if (!store.getState().loggedIn) {
