@@ -19,9 +19,17 @@ const ErrorMessage = styled.p`
     color: rgb(240, 70, 70);
     margin-bottom: 10px;
 `
+const Center = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: ${colors.primary}
+` 
 
-export default {
+export {
     StyledLink,
-    ErrorMessage
+    ErrorMessage,
+    Center
 }
 

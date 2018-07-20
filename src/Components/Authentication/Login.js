@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import Form from '../../UI/Form'
 import FormField from '../../UI/FormField'
 import Button from '../../UI/Button'
-import Auth from './Auth.styles.js'
+import {StyledLink, ErrorMessage, Center} from './Auth.styles.js'
 
 
 
@@ -15,13 +15,15 @@ const Login = (props) => {
 
     return (
         <Fragment>
-            <Form onSubmit={(e) => login(e, url)} title={localName}>
-                <FormField label="Email" name="email" type="email" onChange="" />
-                <FormField label="Password" name="password" type="password" onChange="" />
-                <Auth.ErrorMessage>{loginError}</Auth.ErrorMessage>
-                <Button className="formButton" text="Sign In" />
-                <Auth.StyledLink to="/register">Need to register a new account?</Auth.StyledLink>
-            </Form>
+            <Center>
+                <Form onSubmit={(e) => login(e, url)} title={localName}>
+                    <FormField label="Email" name="email" type="email" onChange="" />
+                    <FormField label="Password" name="password" type="password" onChange="" />
+                    <ErrorMessage>{loginError}</ErrorMessage>
+                    <Button className="formButton" text="Sign In" />
+                    <StyledLink to="/register">Need to register a new account?</StyledLink>
+                </Form>
+            </Center>
         </Fragment>
     )
 }
