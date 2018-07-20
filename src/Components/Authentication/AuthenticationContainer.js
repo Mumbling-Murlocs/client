@@ -3,23 +3,21 @@ import { axiosApi, setJwt } from '../../Api/init'
 import decodeJWT from 'jwt-decode'
 import Register from './Register'
 import Login from './Login'
-import Modal from '../../UI/Modal'
 import store from '../../Redux/store'
+
 
 
 class AuthenticationContainer extends Component {
 
     get storeUser() {
-        return localStorage.token
+        return JSON.parse(localStorage.user)
     }
 
-    set storeUser(toBeStored) {
-        localStorage.setItem('token', toBeStored.token)
-        localStorage.setItem('user', toBeStored.userDetails)
+    set storeUser(userDetails) {
+        localStorage.setItem('user', JSON.stringify(userDetails))
     }
 
     authenticate = async (e, url) => {
-        console.log(url)
         try {
             e.preventDefault()
             const form = e.target.elements
@@ -32,6 +30,7 @@ class AuthenticationContainer extends Component {
             const token = response.data.token
             const userDetails = token && decodeJWT(token)
             // console.log(token)
+            userDetails.token = token
 
             setJwt({token, userDetails})
 
@@ -41,7 +40,7 @@ class AuthenticationContainer extends Component {
                 loggedIn: true
             })
 
-            this.storeUser = {token, userDetails}
+            this.storeUser = userDetails
         } catch (error) {
             store.dispatch({
                 type: 'set_loginError',
@@ -51,16 +50,18 @@ class AuthenticationContainer extends Component {
     }
 
     expiryCheck = () => {
-        const isExpired = (localStorage.expiry * 1000) - Date.now()
+        const user = this.storeUser
+    
+        const isExpired = user && (user.exp * 1000) - Date.now()
+ 
 
         if (isExpired >= 0) {
-            setJwt(localStorage.token)
+            setJwt(user)
             store.dispatch({
                 type: 'set_loggedIn',
                 loggedIn: true
             })
         } else {
-            localStorage.removeItem('token')
             localStorage.removeItem('user')
         }
     }
@@ -71,7 +72,6 @@ class AuthenticationContainer extends Component {
 
     signOut = () => {
         axiosApi.get('/users/logout').then(() => {
-            localStorage.removeItem('token')
             localStorage.removeItem('user')
 
             store.dispatch({
@@ -88,11 +88,8 @@ class AuthenticationContainer extends Component {
         // console.log(store.getState())
         return(
             <Fragment>
-                <Modal toggleModal={ () => {} }>
                     {path === '/register' && <Register registerError={loginError} url={path} register={this.authenticate} />}
                     {path === '/login' && <Login loginError={loginError} url={path} login={this.authenticate} />}
-                    
-                </Modal>
             </Fragment>
         )
     }
