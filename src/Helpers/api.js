@@ -13,6 +13,7 @@ class ApiMethods {
 
 // CRUD - CREATE
     create = async (obj, func) => {
+        console.log('In Real Create')
         // "obj" is the new object you are creating
         func = func || null
 

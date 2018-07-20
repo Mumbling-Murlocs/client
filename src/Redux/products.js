@@ -1,13 +1,17 @@
 import helpers from '../Helpers'
+import store from './store'
 
 const {api} = helpers
 
-const products = (state, action) => {
+
+const productsCrud = (state, action) => {
     const { customAction, newProduct, editedProduct, productId, productOwnerId } = action
+    const {products} = state
 
     switch (customAction) {
 
         case 'create':
+        
             return { ...state, products: [...products, api.products.create(newProduct)] }
 
 
@@ -16,23 +20,26 @@ const products = (state, action) => {
 
 
         case 'update':
-            api.products.update(productId, editedProduct, () => {
+       
+            return  api.products.update(productId, editedProduct, () => {
                 const index = state.products.findIndex(product => product._id === productId)
-
+                
                 if (index >= 0) {
                     const newProductsArray = [...state.products]
                     newProductsArray[index] = editedProduct
-
+                    
                     return {...state, products: newProductsArray}
                 }
+                return state
             })
+     
 
 
         case 'delete':
 
-            api.products.delete(productId, productOwnerId, () => {
-
-                const index = state.products.findIndex(product => product._id === productId)
+            return api.products.delete(productId, productOwnerId, () => {
+                const index = state.products.findIndex(product => product._id == productId)
+         
 
                 if(index >= 0) {
                     const newProductsArray = [...state.products]
@@ -45,4 +52,4 @@ const products = (state, action) => {
     }
        
 }
-export default products
+export default productsCrud

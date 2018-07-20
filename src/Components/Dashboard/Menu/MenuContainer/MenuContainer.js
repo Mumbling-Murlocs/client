@@ -1,9 +1,9 @@
 import React from 'react'
+import MainMenu from '../MainMenu/MainMenu'
 
 const MenuContainer = (props) => {
     return(
-        <div>
-        </div>
+        <MainMenu />
     )
 }
 
