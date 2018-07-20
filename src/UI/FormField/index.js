@@ -1,5 +1,5 @@
 import React from 'react';
-import FormFieldStyles from './FormField.styles'
+import {Input, Label} from './FormField.styles'
 
 
 
@@ -18,8 +18,8 @@ const FormField = (props) => {
 
     return (
         <React.Fragment>
-            <FormFieldStyles.Label >{label}<span>{optional}</span></FormFieldStyles.Label>
-            <FormFieldStyles.Input step={step} autoComplete='nope' placeholder={props.placeholder} onChange={onChange} type={type} autoFocus={autoFocus} name={name} />
+            <Label>{label}<span>{optional}</span></Label>
+            <Input step={step} autoComplete='nope' placeholder={props.placeholder} onChange={onChange} type={type} autoFocus={autoFocus} name={name} />
         </React.Fragment>
     )
 }

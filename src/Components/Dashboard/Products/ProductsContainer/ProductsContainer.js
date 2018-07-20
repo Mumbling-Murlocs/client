@@ -30,6 +30,7 @@ class ProductsContainer extends Component {
 
 
     render(){
+        const {products} = store.getState()
         return (
             <Fragment>
                 <Header>

@@ -1,9 +1,11 @@
 import React from 'react'
+import { MainMenuStyle } from './MainMenu.styles'
 
 const MainMenu = (props) => {
     return(
-        <div>
-        </div>
+        <MainMenuStyle>
+            Menu
+        </MainMenuStyle>
     )
 }
 

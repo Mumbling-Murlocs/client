@@ -37,7 +37,7 @@ describe('Crud and store operations on products', () => {
         let editedProduct = { _id: '1', name: 'foo', price: 4.50, description: 'Product1 description' }
 
 
-        let dispatched = store.dispatch({
+        store.dispatch({
             type: 'products',
             customAction: 'update',
             editedProduct: editedProduct,
@@ -58,7 +58,7 @@ describe('Crud and store operations on products', () => {
        
 
 
-        let dispatched = store.dispatch({
+       store.dispatch({
             type: 'products',
             customAction: 'delete',
             productId: 1

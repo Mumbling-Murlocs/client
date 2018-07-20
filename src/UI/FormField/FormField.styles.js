@@ -39,7 +39,7 @@ const Input = styled.input`
 `
 
 
-export default {
+export {
     Input,
     Label
 }
