@@ -11,6 +11,7 @@ const NewProduct = (props) => {
     console.log(props)
     return(
         <Body>
+            <div>
                 <Form onSubmit={(e) => props.onSubmit(e)}>
                     <FormField  label="Product Name" name="name" type="text" onChange="" />
                     <FormField  label="Product Id" name="productId" type="text" onChange="" />
@@ -20,6 +21,7 @@ const NewProduct = (props) => {
 
                     <Button  text="Create new product" />
                 </Form>
+            </div>
         </Body>
     )
 }
