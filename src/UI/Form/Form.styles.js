@@ -12,7 +12,7 @@ const FormBody = styled.form`
     background-color: ${styleVariables.colors.white}
     padding: 30px;
     border-radius: 5px;
-    width: 350px;
+    width: 450px;
     height: auto;
     display: flex;
     align-items: center;

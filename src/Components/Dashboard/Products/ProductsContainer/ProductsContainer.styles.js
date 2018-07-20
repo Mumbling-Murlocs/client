@@ -20,7 +20,8 @@ const Header = styled.div`
 const BodyWindow = styled.div`
     width: 100%;
     height: 92.5%;
-    background: green;
+    position: relative;
+    z-index: 50;
 `
 
 export {

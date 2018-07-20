@@ -65,4 +65,4 @@ const company = new ApiMethods('/company')
 // const products = new ApiMethods('http://localhost:3001/delivery-day')
 
 
-export default { orders, products }
+export default { orders, products, company }

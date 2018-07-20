@@ -3,6 +3,7 @@ import { axiosApi, setJwt } from '../../Api/init'
 import decodeJWT from 'jwt-decode'
 import Register from './Register'
 import Login from './Login'
+import CreateCompany from './CreateCompany'
 import store from '../../Redux/store'
 
 
@@ -28,18 +29,19 @@ class AuthenticationContainer extends Component {
             })
 
             const token = response.data.token
-            const userDetails = token && decodeJWT(token)
-            // console.log(token)
-            userDetails.token = token
+            const user = token && decodeJWT(token)
+            user.token = token
 
-            setJwt({token, userDetails})
+            setJwt(user)
 
 
             store.dispatch({
                 type: 'set_loggedIn',
-                loggedIn: true
+                loggedIn: true,
+                currentUser: user
+
             })
-            this.storeUser = userDetails
+            this.storeUser = user
             this.props.history.push('/dashboard')
         } catch (error) {
             store.dispatch({
@@ -51,6 +53,7 @@ class AuthenticationContainer extends Component {
 
     expiryCheck = () => {
         const user = this.storeUser
+
     
         const isExpired = user && (user.exp * 1000) - Date.now()
  
@@ -59,7 +62,8 @@ class AuthenticationContainer extends Component {
             setJwt(user)
             store.dispatch({
                 type: 'set_loggedIn',
-                loggedIn: true
+                loggedIn: true,
+                currentUser: user
             })
         } else {
             localStorage.removeItem('user')
@@ -76,9 +80,34 @@ class AuthenticationContainer extends Component {
 
             store.dispatch({
                 type: 'set_loggedIn',
-                loggedIn: false
+                loggedIn: false,
+                currentUser: null
             })
         })
+    }
+
+    createCompany = (e) => {
+        e.preventDefault()
+        const form = e.target.elements
+
+       const newCompany = {
+            name: form.name.value,
+            abn: form.abn.value,
+            businessType: form.businessType.value,
+            address: form.address.value,
+            phoneNumber: form.phoneNumber.value,
+            accountType: 'purchaser',
+            companyOwnerId: store.getState().currentUser.sub
+        }
+
+        store.dispatch({
+            type: 'company',
+            customAction: 'create',
+            newCompany: newCompany
+        })
+        
+        this.storeUser = store.getState().currentUser
+        this.props.history.push('/dashboard')
     }
 
     render() {
@@ -90,6 +119,7 @@ class AuthenticationContainer extends Component {
             <Fragment>
                     {path === '/register' && <Register registerError={loginError} url={path} register={this.authenticate} />}
                     {path === '/login' && <Login loginError={loginError} url={path} login={this.authenticate} />}
+                    {path === '/create-company' && <CreateCompany createCompany={this.createCompany} />}
             </Fragment>
         )
     }

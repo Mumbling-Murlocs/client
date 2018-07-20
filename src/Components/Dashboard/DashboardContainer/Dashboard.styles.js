@@ -33,12 +33,26 @@ const AppName = styled.div`
 const SidePanel = styled.div`
     background: ${colors.dark};
     position: relative;
-    
+`
+
+const Window = styled.div`
+    position: relative;
+`
+const LogoBackground = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 25;
 `
 
 export {
     DashboardLayout,
     Header,
     AppName,
-    SidePanel
+    SidePanel,
+    Window,
+    LogoBackground
 }

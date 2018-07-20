@@ -7,7 +7,7 @@ const Label = styled.label`
     width: 100%;
     margin-bottom: 5px;
     font-weight: bold;
-    color: ${colors.primary};
+    color: ${colors.dark};
     font-size: 0.8rem;
 `
 const Input = styled.input`
@@ -18,15 +18,24 @@ const Input = styled.input`
     width: 100%;
     background: ${colors.white};
     box-sizing: border-box;
-    color: ${colors.primary};
+    color: ${colors.dark};
+
+    &:focus {
+        border: 1px solid ${colors.orange};
+    }
+     &:active {
+        border: 1px solid ${colors.orange};
+    }
     
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-        -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
-        -webkit-transition-delay: 9999s;
-        -webkit-text-fill-color: ${colors.primary};
+        // -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+        // -webkit-transition-delay: 9999s;
+        -webkit-text-fill-color: ${colors.dark};
+        -webkit-text-fill-border: 1px solid ${colors.orange};
+        // border: 1px solid ${colors.orange};
     }
     // &:-webkit-autofill {
     //     -webkit-box-shadow: 0 0 0 30px #ffffff inset;
