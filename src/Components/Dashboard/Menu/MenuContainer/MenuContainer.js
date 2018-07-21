@@ -3,6 +3,7 @@ import MainMenu from '../MainMenu/MainMenu'
 import SubMenu from '../SubMenu/SubMenu'
 import store from '../../../../Redux/store'
 import { SideBarLayout } from './Menu.styles'
+import { axiosApi } from '../../../../Api/init'
 
 class MenuContainer extends Component {
     setPath = (url) => {
@@ -13,10 +14,22 @@ class MenuContainer extends Component {
         })
     } 
 
+    signOut = () => {
+        axiosApi.get('/users/logout').then(() => {
+            localStorage.removeItem('user')
+
+            store.dispatch({
+                type: 'set_loggedIn',
+                loggedIn: false,
+                currentUser: null
+            })
+        })
+    }
+
     render(){
         return(
             <SideBarLayout>
-                <MainMenu setPath={this.setPath} />
+                <MainMenu signOut={this.signOut} setPath={this.setPath} />
                 <SubMenu />
             </SideBarLayout>
         )

@@ -5,49 +5,42 @@ const {api} = helpers
 
 
 const productsCrud = (state, action) => {
-    const { customAction, newProduct, editedProduct, productId, productOwnerId } = action
+    const { customAction, newlyCreated, all, updated, id } = action
     const {products} = state
 
     switch (customAction) {
 
         case 'create':
         
-            return { ...state, products: [...products, api.products.create(newProduct)] }
+            return { ...state, products: [...products, newlyCreated] }
 
 
         case 'get_all':
-            return { ...state, products: api.products.all() }
+            return { ...state, products: all }
 
 
         case 'update':
-       
-            return  api.products.update(productId, editedProduct, () => {
-                const index = state.products.findIndex(product => product._id === productId)
-                
+                let index = state.products.findIndex(product => product._id === id)
+
                 if (index >= 0) {
                     const newProductsArray = [...state.products]
-                    newProductsArray[index] = editedProduct
-                    
-                    return {...state, products: newProductsArray}
-                }
-                return state
-            })
-     
-
-
-        case 'delete':
-
-            return api.products.destroy(productId, productOwnerId, () => {
-                const index = state.products.findIndex(product => product._id == productId)
-
-                if(index >= 0) {
-                    const newProductsArray = [...state.products]
-                    newProductsArray.splice(index, 1)
+                    newProductsArray[index] = updated
 
                     return { ...state, products: newProductsArray }
                 }
                 return state
-            })  
+
+     
+        case 'delete':
+             index = state.products.findIndex(product => product._id == id)
+
+            if (index >= 0) {
+                const newProductsArray = [...state.products]
+                newProductsArray.splice(index, 1)
+
+                return { ...state, products: newProductsArray }
+            }
+            return state
     }
        
 }

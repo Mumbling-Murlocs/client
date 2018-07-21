@@ -13,8 +13,10 @@ const Register = (props) => {
            <Fragment>
                <Center>
                     <Form onSubmit={(e) => register(e, url)} title="Register an account!">
-                        <FormField label="Email" name="email" type="email" onChange="" />
-                        <FormField label="Password" name="password" type="password" onChange="" />
+                        <FormField label="First Name" name="firstName" type="text" />
+                        <FormField label="Last Name" name="lastName" type="text" />
+                        <FormField label="Email" name="email" type="email" />
+                        <FormField label="Password" name="password" type="password" />
                         <ErrorMessage>{registerError}</ErrorMessage>
 
                         <Button>Create account</Button>

@@ -4,7 +4,7 @@ import { MainMenuStyle, MainMenuLink } from './MainMenu.styles'
 
 const MainMenu = (props) => {
     
-    const {setPath} = props
+    const {setPath, signOut} = props
     return(
         <MainMenuStyle>
             <MainMenuLink onClick={() => setPath('/orders')} to="/dashboard/orders">Orders</MainMenuLink>
@@ -13,6 +13,7 @@ const MainMenu = (props) => {
             <MainMenuLink onClick={() => setPath('/clients')} to="/dashboard/clients">Clients</MainMenuLink>
             <MainMenuLink onClick={() => setPath('/staff')} to="/dashboard/staff">Staff</MainMenuLink>
             <MainMenuLink onClick={() => setPath('/account')} to="/dashboard/account">My Account</MainMenuLink>
+            <MainMenuLink onClick={() => signOut()} to="/dashboard">Sign Out</MainMenuLink>
         </MainMenuStyle>
     )
 }
