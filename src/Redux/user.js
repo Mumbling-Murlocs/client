@@ -17,7 +17,7 @@ const userCrud = (state, action) => {
 
         case 'update':
 
-            api.user.update(updatedUser.sub, updatedUser)
+            
 
             return state
 
