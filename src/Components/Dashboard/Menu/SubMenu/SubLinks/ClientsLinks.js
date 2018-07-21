@@ -1,14 +1,14 @@
 import React, {Fragment} from 'react'
-import { defaultStyles } from '../../../../../Assets/Styles';
-const { StyledLink } = defaultStyles
+import { Default } from '../../../../../Assets/Styles';
+
 
 
 const ClientsLinks = () => {
     return(
         <Fragment>
-            <StyledLink to='/dashboard/clients'>All Clients</StyledLink>
-            <StyledLink to='/dashboard/clients/favourite'>Favourite Clients</StyledLink>
-            <StyledLink to='/dashboard/clients/suspended'>Suspended Clients</StyledLink>
+            <Default.Link to='/dashboard/clients'>All Clients</Default.Link>
+            <Default.Link to='/dashboard/clients/favourite'>Favourite Clients</Default.Link>
+            <Default.Link to='/dashboard/clients/suspended'>Suspended Clients</Default.Link>
         </Fragment>
     )
 }

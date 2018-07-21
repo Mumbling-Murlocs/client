@@ -22,7 +22,8 @@ class AuthenticationContainer extends Component {
         try {
             e.preventDefault()
             const form = e.target.elements
-
+            
+            
             const response = await axiosApi.post(`/users${url}`, {
                 email: form.email.value,
                 password: form.password.value
@@ -39,7 +40,6 @@ class AuthenticationContainer extends Component {
                 type: 'set_loggedIn',
                 loggedIn: true,
                 currentUser: user
-
             })
             this.storeUser = user
             this.props.history.push('/dashboard')

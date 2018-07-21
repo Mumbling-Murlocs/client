@@ -6,7 +6,7 @@ const DashboardLayout = styled.div`
     display: grid;
     grid-template-columns: 1fr 4fr;
     height: 100%;
-    background: ${colors.primary};
+    background: linear-gradient(to bottom right, #1DA1F2, #1B95E0, #1888CE, #1574AF);
 `
 
 const Header = styled.div`

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { styleVariables } from '../../../../Assets/Styles';
+import { styleVariables } from '../../../../Assets/Styles'
 const { colors } = styleVariables
 
 

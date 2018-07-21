@@ -45,7 +45,7 @@ class ApiMethods {
     }
 
 // CRUD - DESTROY
-    delete = (id, authorized, func) => {
+    destroy = (id, authorized, func) => {
         // The middle paramater here passes the objects "ownership" id... Consider it as a foreign key e.g. user_id
         func = func || null
 
@@ -54,7 +54,6 @@ class ApiMethods {
                 data: { id: authorized.userId }
             }
         ).then(func)       
-
     }
 }
 
@@ -62,6 +61,7 @@ class ApiMethods {
 const orders = new ApiMethods('/orders')
 const products = new ApiMethods('/products')
 const company = new ApiMethods('/company')
+const user = new ApiMethods('/users')
 // const products = new ApiMethods('http://localhost:3001/delivery-day')
 
 

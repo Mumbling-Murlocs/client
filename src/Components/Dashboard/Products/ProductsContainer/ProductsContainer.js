@@ -30,10 +30,10 @@ class ProductsContainer extends Component {
     }
 
     componentDidMount () {
-        // store.dispatch({
-        //     type: 'products',
-        //     customAction: 'get_all'
-        // })
+        store.dispatch({
+            type: 'products',
+            customAction: 'get_all'
+        })
     }
 
 
@@ -43,24 +43,24 @@ class ProductsContainer extends Component {
 
 
     // const {products} = store.getState()
-    const products = [
-        {companyId: "1",
-        price: 3.50,
-        productId: "HKIA",
-        name: "Hello Kitty Island Adventures",
-        description: "Best MMO Game",
-        categories: ["game","online"],
-        tags: ["game","online"],
-        stockQty: 5},
-        {companyId: "3",
-            price: 4.50,
-            productId: "WOW",
-            name: "World of Warcraft",
-            description: "Longest lasting MMO",
-            categories: ["game","online"],
-            tags: ["game","online"],
-            stockQty: 20}
-    ]
+    // const products = [
+    //     {companyId: "1",
+    //     price: 3.50,
+    //     productId: "HKIA",
+    //     name: "Hello Kitty Island Adventures",
+    //     description: "Best MMO Game",
+    //     categories: ["game","online"],
+    //     tags: ["game","online"],
+    //     stockQty: 5},
+    //     {companyId: "3",
+    //         price: 4.50,
+    //         productId: "WOW",
+    //         name: "World of Warcraft",
+    //         description: "Longest lasting MMO",
+    //         categories: ["game","online"],
+    //         tags: ["game","online"],
+    //         stockQty: 20}
+    // ]
 console.log(products)
 
         return (
@@ -69,7 +69,7 @@ console.log(products)
                     
                 </Header>
                 <BodyWindow>
-                    <Route path='/dashboard/products' render={(rProps) => (
+                    <Route exact path='/dashboard/products' render={(rProps) => (
                         <AllProducts {...rProps} productsArray={products}  />
                     )}  />
                     <Route path='/dashboard/products/new' render={(rProps) => (

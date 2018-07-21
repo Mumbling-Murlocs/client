@@ -37,7 +37,7 @@ const productsCrud = (state, action) => {
 
         case 'delete':
 
-            return api.products.delete(productId, productOwnerId, () => {
+            return api.products.destroy(productId, productOwnerId, () => {
                 const index = state.products.findIndex(product => product._id == productId)
 
                 if(index >= 0) {

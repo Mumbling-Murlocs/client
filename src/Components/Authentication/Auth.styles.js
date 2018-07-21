@@ -1,4 +1,4 @@
-import { styleVariables } from '../../Assets/Styles';
+import { styleVariables, Default } from '../../Assets/Styles';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 const { colors } = styleVariables
@@ -24,12 +24,24 @@ const Center = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: ${colors.primary}
+    // background: ${colors.primary}
 ` 
+const Button = Default.Button.extend`
+    border: 2px solid #E49D39;
+    color: #ffffff;
+    background: #E49D39;
+    width: 100%
+    &:hover {
+        color: white;
+        background: rgb(214, 139, 33);
+        border: 2px solid rgb(214, 139, 33);
+    }
+`
 
 export {
     StyledLink,
     ErrorMessage,
-    Center
+    Center,
+    Button
 }
 

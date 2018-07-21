@@ -37,7 +37,7 @@ const Switchboard = (props) => {
                         if (!store.getState().loggedIn) {
                             return <Redirect to="/login" />
                         } else {
-                            <AuthenticationContainer {...rProps} />
+                            return <AuthenticationContainer {...rProps} />
                         }
                     }} />
                     

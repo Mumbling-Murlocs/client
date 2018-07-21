@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
 import Form from '../../UI/Form'
 import FormField from '../../UI/FormField'
-import Button from '../../UI/Button'
-import {StyledLink, ErrorMessage, Center} from './Auth.styles.js'
+import {StyledLink, ErrorMessage, Center, Button} from './Auth.styles.js'
 
 
 

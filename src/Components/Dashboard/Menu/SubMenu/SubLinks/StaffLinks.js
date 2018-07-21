@@ -1,12 +1,11 @@
 import React, {Fragment} from 'react'
-import { defaultStyles } from '../../../../../Assets/Styles';
-const { StyledLink } = defaultStyles
+import { Default } from '../../../../../Assets/Styles';
 
 
 const StaffLinks = () => {
     return(
         <Fragment>
-            <StyledLink to='/dashboard/staff'>All Staff</StyledLink>
+            <Default.Link to='/dashboard/staff'>All Staff</Default.Link>
            
         </Fragment>
     )

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MenuContainer from '../Menu/MenuContainer/MenuContainer';
 import OrdersContainer from '../Orders/OrdersContainer/OrdersContainer';
 import ProductsContainer from '../Products/ProductsContainer/ProductsContainer';
+import AccountContainer from '../Account/AccountContainer/AccountContainer';
 import { DashboardLayout, Header, SidePanel, Window, LogoBackground } from './Dashboard.styles.js'
 import { Route } from 'react-router-dom'
 import logoPath from "../../../Assets/Images/logo.svg"
@@ -22,6 +23,7 @@ class Dashboard extends Component {
                         <MenuContainer />
                     </SidePanel>
                     <Window>  
+                    
                     <LogoBackground>
                         <img
                             src={logoPath}
@@ -33,6 +35,7 @@ class Dashboard extends Component {
                         
                         <Route path='/dashboard/orders' component={OrdersContainer} />
                         <Route path='/dashboard/products' component={ProductsContainer} />
+                        <Route path='/dashboard/account' component={AccountContainer} />
                     </Window>
                 </DashboardLayout>
         )

@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
 import Form from '../../UI/Form'
 import FormField from '../../UI/FormField'
-import Button from '../../UI/Button'
-import { StyledLink, ErrorMessage, Center } from './Auth.styles.js'
+import { Center, Button } from './Auth.styles.js'
 
 
 
@@ -24,8 +23,8 @@ const CreateCompany = (props) => {
                     <FormField label="Company Phone Number" name="phoneNumber" type="text"  />
                     
                     
-                    <Button className="formButton" text="Create your company" />
-                    {/* <StyledLink to="/register">Need to register a new account?</StyledLink> */}
+                    <Button>Create your company</Button>
+                   
                 </Form>
             </Center>
         </Fragment>
