@@ -1,7 +1,4 @@
-import helpers from '../Helpers'
 
-
-const {api} = helpers
 
 
 const productsCrud = (state, action) => {
@@ -20,11 +17,11 @@ const productsCrud = (state, action) => {
 
 
         case 'update':
-                let index = state.products.findIndex(product => product._id === id)
+            let indexUpdate = state.products.findIndex(product => product._id === id)
 
-                if (index >= 0) {
+            if (indexUpdate >= 0) {
                     const newProductsArray = [...state.products]
-                    newProductsArray[index] = updated
+                    newProductsArray[indexUpdate] = updated
 
                     return { ...state, products: newProductsArray }
                 }
@@ -32,11 +29,11 @@ const productsCrud = (state, action) => {
 
      
         case 'delete':
-             index = state.products.findIndex(product => product._id == id)
+            let indexDelete = state.products.findIndex(product => product._id == id)
 
-            if (index >= 0) {
+            if (indexDelete >= 0) {
                 const newProductsArray = [...state.products]
-                newProductsArray.splice(index, 1)
+                newProductsArray.splice(indexDelete, 1)
 
                 return { ...state, products: newProductsArray }
             }

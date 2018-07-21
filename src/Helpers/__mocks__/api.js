@@ -1,3 +1,7 @@
+// import { axiosApi, setJwt } from '../Api/init'
+// import decodeJWT from 'jwt-decode'
+import store from '../../Redux/store'
+
 
 class ApiMethods {
 
@@ -9,7 +13,12 @@ class ApiMethods {
      create =  (obj, func) => {
         // "obj" is the new object you are creating
         obj._id = '3'
-        return obj
+         store.dispatch({
+             type: this.endpoint,
+             customAction: 'create',
+             newlyCreated: obj
+         })
+
     }
 
     // CRUD - READ-ALL
@@ -18,8 +27,14 @@ class ApiMethods {
          let product2 = { _id: '2', name: 'product2', price: 4.50, description: 'Product2 description' }
          let newProduct = { _id: '3', name: 'blah', price: 4.50, description: 'Blah blah' }
 
-        const array = [product1, product2, newProduct]
-        return array
+         const array = [product1, product2, newProduct]
+
+         store.dispatch({
+             type: this.endpoint,
+             customAction: 'get_all',
+             all: array
+         })
+
     }
 
     // // CRUD - READ-SINGLE (findById)
@@ -36,7 +51,15 @@ class ApiMethods {
         // axiosApi.put(
         //     this.endpoint + id, obj
         // ).then(func)
-        return func()
+        
+
+         store.dispatch({
+             type: this.endpoint,
+             customAction: 'update',
+             updated: obj,
+             id: id
+         })
+        
     }
 
     // CRUD - DESTROY
@@ -44,12 +67,13 @@ class ApiMethods {
         // The middle paramater here passes the objects "ownership" id... Consider it as a foreign key e.g. user_id
         // func = func || null
 
-        // axiosApi.delete(
-        //     this.endpoint + id, {
-        //         data: { id: authorized.userId }
-        //     }
-        // ).then(func)
-         return func()
+    
+         store.dispatch({
+             type: this.endpoint,
+             customAction: 'delete',
+             id: id
+         })
+
     }
 }
 

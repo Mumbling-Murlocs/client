@@ -1,7 +1,3 @@
-import helpers from '../Helpers'
-
-
-const {api} = helpers
 
 
 const companyCrud = (state, action) => {
