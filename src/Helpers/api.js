@@ -88,7 +88,7 @@ class ApiMethods {
 
     authenticate = async (newUser, url, func) => {
         try {
-
+            console.log(newUser)
 
             const response = await axiosApi.post(`/users${url}`, newUser)
 

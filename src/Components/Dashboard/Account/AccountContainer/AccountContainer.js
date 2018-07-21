@@ -3,6 +3,8 @@ import { Header, BodyWindow } from './AccountContainer.styles'
 import { Route } from 'react-router-dom'
 import MyAccount from '../MyAccount/MyAccount'
 import store from '../../../../Redux/store'
+import helpers from '../../../../Helpers/'
+const {api} = helpers
 
 class ProductsContainer extends Component {
 
@@ -28,8 +30,14 @@ class ProductsContainer extends Component {
         })
     }
 
-    upgradeAccount = () => {
-        
+    editAccount = () => {
+
+    }
+
+    upgradeAccount = (accountType) => {
+        const id = store.getState().currentUser.company._id
+        const companyOwnerId = store.getState().currentUser.company.companyOwnerId
+        api.company.update(id, { accountType, companyOwnerId })
     }
 
     componentDidMount () {
@@ -49,7 +57,7 @@ class ProductsContainer extends Component {
                 </Header>
                 <BodyWindow>
                     <Route path='/dashboard/account' render={(rProps) => (
-                        <MyAccount {...rProps}   />
+                        <MyAccount {...rProps} upgradeAccount={this.upgradeAccount}   />
                     )}  />
                 </BodyWindow>
             </Fragment>

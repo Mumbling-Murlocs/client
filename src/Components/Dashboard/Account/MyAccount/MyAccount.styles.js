@@ -16,14 +16,25 @@ const Body = Default.Body.extend`
     align-items: center;
 `
 
-const Panel = Default.Panel.extend`
-   background: ${colors.white};
+const PanelContainer = Default.Panel.extend`
+   display: block;
    height: 100%;
    width: 49.5%;
+`
+const Panel = Default.Panel.extend`
+   background: ${colors.white};
+   height: 95%;
+   width: 100%;
+`
+const PanelTitle = styled.h3`
+    margin: 0;
+    height: 5%;
 `
 
 export {
     MainPanel,
     Body,
-    Panel
+    Panel,
+    PanelContainer,
+    PanelTitle
 }

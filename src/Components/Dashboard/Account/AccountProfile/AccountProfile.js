@@ -14,7 +14,7 @@ const MyAccount = (props) => {
         <Body>
             <Title>Hello, {user.firstName + ' ' + user.lastName}</Title>
             <p>{user.role}</p>
-            <EditButton>Edit profile</EditButton>
+            <EditButton onClick={() => props.upgradeAccount('supplier')}>Upgrade to supplier</EditButton>
             <Title>Your company details</Title>
             <p>{user.company.name}</p>
             

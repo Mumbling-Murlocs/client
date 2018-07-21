@@ -1,20 +1,27 @@
 import React from 'react'
 import AccountProfile from '../AccountProfile/AccountProfile'
-import {MainPanel, Body, Panel} from './MyAccount.styles'
+import { MainPanel, Body, Panel, PanelContainer, PanelTitle} from './MyAccount.styles'
 
 const MyAccount = (props) => {
 
     return(
         <Body>
             <MainPanel>
-                <Panel>
-                    <AccountProfile />
+                <PanelContainer>
+                    <PanelTitle>Profile</PanelTitle>
+                    <Panel>
+                        <AccountProfile upgradeAccount={props.upgradeAccount} />
 
-                </Panel>
+                    </Panel>
+                </PanelContainer>
 
-                <Panel>
+                <PanelContainer>
+                    <PanelTitle>Activity</PanelTitle>
+                    <Panel>
 
-                </Panel>
+                    </Panel>
+                </PanelContainer>
+
                
             </MainPanel>
         </Body>

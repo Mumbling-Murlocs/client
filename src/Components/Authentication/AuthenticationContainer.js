@@ -27,6 +27,7 @@ class AuthenticationContainer extends Component {
     authenticate = (e, url) => {
         e.preventDefault()
         const form = e.target.elements
+        console.log(form)
 
         const newUser = {
             email: form.email.value,
