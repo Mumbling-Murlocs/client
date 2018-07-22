@@ -14,7 +14,8 @@ const initialState = {
     loginError: null,
     loggedIn: false,
     path: null,
-    currentUser: null
+    currentUser: null,
+    selectedSupplier: null
 }
 
 // These are the reducers/actions that change the state ("setState")

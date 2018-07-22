@@ -1,12 +1,12 @@
 import React from 'react'
-import {
-    Body, Button, MainPanel, PanelContainer, Panel, PanelTitle } from './NewOrder.styles'
-// import Form from '../../../../UI/Form'
-// import FormField from '../../../../UI/FormField'
-// import TextArea from '../../../../UI/TextArea'
+import { Body, Button, MainPanel, PanelContainer, Panel, PanelTitle } from './NewOrder.styles'
+import ViewSupplier from '../SuppliersDRAFT/ViewSupplier'
+import AllSuppliers from '../SuppliersDRAFT/AllSuppliers'
 
 
-//   companyDetails: Schema.Types.Mixed,
+
+
+//    companyDetails: Schema.Types.Mixed,
 //     companyId: String,
 
 //     supplierDetails: Schema.Types.Mixed,
@@ -23,6 +23,12 @@ import {
 //     orderPaid: Boolean,
 
 const NewOrder = (props) => {
+    let supplierPanelContent = null
+    if (props.selectedSupplier) {
+        supplierPanelContent = <ViewSupplier />
+    } else {
+        supplierPanelContent = <AllSuppliers />
+    }
     console.log(props)
     return (
         <Body>
@@ -30,10 +36,17 @@ const NewOrder = (props) => {
                <PanelContainer>
                     <PanelTitle>New Order</PanelTitle>
                <Panel>
+                   
                </Panel>
                </PanelContainer>
            </MainPanel>
+
            <MainPanel>
+                <PanelContainer>
+                    <PanelTitle>Suppliers</PanelTitle>
+                        {supplierPanelContent}
+                    
+                </PanelContainer>
            </MainPanel>
         </Body>
     )
