@@ -11,7 +11,9 @@ const BodyWindow = Default.Window.extend`
 `
 
 
+
+
 export {
-    BodyWindow, 
+    BodyWindow,
     Header
 }

@@ -28,17 +28,28 @@ class ApiMethods {
         func(response.data)
     }
 
-// CRUD - READ-ALL
-    all = async (func) => {
-        const response = await axiosApi.get(this.endpoint)
+// CRUD - READ-ALL (Also has an options parameter that can be passed in to deterimne which customAction in the switch is to be used... So we can filter if neccessary)
+    all = async (options) => {
+        try {
+            const response = await axiosApi.get(this.endpoint)
+    
+            const data = null
+    
+            if(!options) {
+                options = 'get_all'
+            }
+    
+            store.dispatch({
+                type: this.endpoint,
+                customAction: options,
+                all: response.data
+            })
 
-        store.dispatch({
-            type: this.endpoint,
-            customAction: 'get_all',
-            all: response.data
-        })
+        } catch (error) {
+            console.log(error.response)
+        }
 
-        func(response.data)
+        // func(response.data)
     }
 
  // CRUD - READ-SINGLE (findById)
@@ -88,7 +99,6 @@ class ApiMethods {
 
     authenticate = async (newUser, url, func) => {
         try {
-            console.log(newUser)
 
             const response = await axiosApi.post(`/users${url}`, newUser)
 

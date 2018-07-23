@@ -27,7 +27,6 @@ class AuthenticationContainer extends Component {
     authenticate = (e, url) => {
         e.preventDefault()
         const form = e.target.elements
-        console.log(form)
 
         const newUser = {
             email: form.email.value,
@@ -86,8 +85,11 @@ class AuthenticationContainer extends Component {
         })      
     }
 
+
     render() {
-        const {path} = this.props.match 
+        const {path} = this.props.match
+        // console.log('THIS.PROPS IN AC', this.props)
+        // console.log(path) 
         const {loginError} = store.getState()
         return(
             <Fragment>

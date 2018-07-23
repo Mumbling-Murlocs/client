@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateCompany Should render the way we expect 1`] = `
+<div
+  className="sc-VigVT gUteem"
+>
+  <form
+    className="sc-gzVnrw eqCBFZ"
+    id={undefined}
+    onSubmit={[Function]}
+  >
+    <h3
+      className="sc-htoDjs fbZTTv"
+    >
+      Lets setup your business huh?
+    </h3>
+    <label
+      className="sc-dnqmqq gxITcO"
+    >
+      Company Name
+      <span />
+    </label>
+    <input
+      autoComplete="nope"
+      autoFocus={null}
+      className="sc-iwsKbI kxDmNQ"
+      name="name"
+      onChange={null}
+      placeholder={undefined}
+      step={null}
+      type="text"
+    />
+    <label
+      className="sc-dnqmqq gxITcO"
+    >
+      ABN
+      <span />
+    </label>
+    <input
+      autoComplete="nope"
+      autoFocus={null}
+      className="sc-iwsKbI kxDmNQ"
+      name="abn"
+      onChange={null}
+      placeholder={undefined}
+      step={null}
+      type="text"
+    />
+    <label
+      className="sc-dnqmqq gxITcO"
+    >
+      What type of company do you run?
+      <span />
+    </label>
+    <input
+      autoComplete="nope"
+      autoFocus={null}
+      className="sc-iwsKbI kxDmNQ"
+      name="businessType"
+      onChange={null}
+      placeholder={undefined}
+      step={null}
+      type="text"
+    />
+    <label
+      className="sc-dnqmqq gxITcO"
+    >
+      Company Address
+      <span />
+    </label>
+    <input
+      autoComplete="nope"
+      autoFocus={null}
+      className="sc-iwsKbI kxDmNQ"
+      name="address"
+      onChange={null}
+      placeholder={undefined}
+      step={null}
+      type="text"
+    />
+    <label
+      className="sc-dnqmqq gxITcO"
+    >
+      Company Phone Number
+      <span />
+    </label>
+    <input
+      autoComplete="nope"
+      autoFocus={null}
+      className="sc-iwsKbI kxDmNQ"
+      name="phoneNumber"
+      onChange={null}
+      placeholder={undefined}
+      step={null}
+      type="text"
+    />
+    <button
+      className="sc-jTzLTM ffePeW"
+    >
+      Create your company
+    </button>
+    <div />
+  </form>
+</div>
+`;

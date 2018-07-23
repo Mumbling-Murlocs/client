@@ -10,7 +10,7 @@ const Login = (props) => {
     const { loginError, login, url } = props
     const {user} = localStorage
 
-    const localName = user ? `Hello, ${user.email}` : 'Hello Stranger!'
+    const localName = user ? `Hello, ${user.firstName}` : 'Hello Stranger!'
 
     return (
         <Fragment>

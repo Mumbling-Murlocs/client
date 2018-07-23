@@ -7,6 +7,7 @@ import { StyledLink, ErrorMessage, Center, Button } from './Auth.styles.js'
 
 const Register = (props) => {
    const { registerError, register, url} = props
+   
 
        
        return (

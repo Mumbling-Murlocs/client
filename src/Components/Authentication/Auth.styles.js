@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const { colors } = styleVariables
 
 
+
 const StyledLink = styled(Link)`
     margin-top: 10px;
     color: ${colors.primary};

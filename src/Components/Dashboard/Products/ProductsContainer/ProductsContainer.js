@@ -4,6 +4,10 @@ import { Route } from 'react-router-dom'
 import NewProduct from '../NewProduct/NewProduct'
 import AllProducts from '../AllProducts/AllProducts'
 import store from '../../../../Redux/store'
+import helpers from '../../../../Helpers'
+
+
+const { api } = helpers
 
 class ProductsContainer extends Component {
 
@@ -22,46 +26,21 @@ class ProductsContainer extends Component {
             stockQty: form.stockQty.value
         }
 
-        store.dispatch({
-            type: 'products',
-            customAction: 'create',
-            newProduct: newProduct
-        })
+        // Replaced store.dispatch with this for our state updates and api requests
+        api.products.create(newProduct)
+    
     }
 
     componentDidMount () {
-        store.dispatch({
-            type: 'products',
-            customAction: 'get_all'
-        })
+        // Replaced store.dispatch with this for our state updates and api requests
+        api.products.all()
+       
     }
 
 
     render(){
 
         const {products} = store.getState()
-
-
-    // const {products} = store.getState()
-    // const products = [
-    //     {companyId: "1",
-    //     price: 3.50,
-    //     productId: "HKIA",
-    //     name: "Hello Kitty Island Adventures",
-    //     description: "Best MMO Game",
-    //     categories: ["game","online"],
-    //     tags: ["game","online"],
-    //     stockQty: 5},
-    //     {companyId: "3",
-    //         price: 4.50,
-    //         productId: "WOW",
-    //         name: "World of Warcraft",
-    //         description: "Longest lasting MMO",
-    //         categories: ["game","online"],
-    //         tags: ["game","online"],
-    //         stockQty: 20}
-    // ]
-console.log(products)
 
         return (
             <Fragment>

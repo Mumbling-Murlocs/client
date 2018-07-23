@@ -15,6 +15,11 @@ const companyCrud = (state, action) => {
        
             return { ...state, currentUser: { ...currentUser, company: updated } }
 
+        case 'all_suppliers':
+            const suppliers = all.filter(supplier => supplier.accountType === 'supplier')
+            
+            return { ...state, suppliers: suppliers }
+
         // case 'delete':
 
         //     return api.company.delete(companyId, companyOwnerId, () => {

@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewProduct Should render the way we expect 1`] = `
+<div
+  className="sc-bZQynM isBous"
+>
+  <div>
+    <form
+      className="sc-dnqmqq kOFvKe"
+      id={undefined}
+      onSubmit={[Function]}
+    >
+      <h3
+        className="sc-iwsKbI cWsnOw"
+      />
+      <label
+        className="sc-gZMcBi fSOcE"
+      >
+        Product Name
+        <span />
+      </label>
+      <input
+        autoComplete="nope"
+        autoFocus={null}
+        className="sc-gqjmRU ifBdEQ"
+        name="name"
+        onChange={null}
+        placeholder={undefined}
+        step={null}
+        type="text"
+      />
+      <label
+        className="sc-gZMcBi fSOcE"
+      >
+        Product Id
+        <span />
+      </label>
+      <input
+        autoComplete="nope"
+        autoFocus={null}
+        className="sc-gqjmRU ifBdEQ"
+        name="productId"
+        onChange={null}
+        placeholder={undefined}
+        step={null}
+        type="text"
+      />
+      <label
+        className="sc-gZMcBi fSOcE"
+      >
+        Product Price
+        <span />
+      </label>
+      <input
+        autoComplete="nope"
+        autoFocus={null}
+        className="sc-gqjmRU ifBdEQ"
+        name="price"
+        onChange={null}
+        placeholder={undefined}
+        step=".01"
+        type="number"
+      />
+      <label
+        className="sc-gZMcBi fSOcE"
+      >
+        Product QTY
+        <span />
+      </label>
+      <input
+        autoComplete="nope"
+        autoFocus={null}
+        className="sc-gqjmRU ifBdEQ"
+        name="stockQty"
+        onChange={null}
+        placeholder={undefined}
+        step={null}
+        type="number"
+      />
+      <label
+        className="sc-VigVT dkAinW"
+      >
+        Product Description
+        <span />
+      </label>
+      <textarea
+        autoComplete="nope"
+        autoFocus={null}
+        className="sc-jTzLTM fKHxiT"
+        name="description"
+        onChange={null}
+        placeholder={undefined}
+        type="text"
+      />
+      <button
+        className="sc-gzVnrw uzLKJ"
+      >
+        Create new product
+      </button>
+      <div />
+    </form>
+  </div>
+</div>
+`;

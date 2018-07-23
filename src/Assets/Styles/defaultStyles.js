@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import styleVariables from './styleVariables'
 import { Link } from 'react-router-dom'
+import defaultImg from '../Images/placeholder-image.png'
 const { colors } = styleVariables
 
 const Default = {
@@ -54,7 +55,12 @@ const Default = {
                         background: ${colors.darkGrey};
                         border: 2px solid ${colors.darkGrey};
                 }
-`
+        `, Image: styled.div`
+                background-image: url(${props => props.url ? props.url : defaultImg});
+                background-size: auto 100%;
+                background-repeat: no-repeat;
+                background-position: center; 
+        `
 
     
 
