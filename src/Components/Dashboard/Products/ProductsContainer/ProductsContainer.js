@@ -27,7 +27,9 @@ class ProductsContainer extends Component {
         }
 
         // Replaced store.dispatch with this for our state updates and api requests
-        api.products.create(newProduct)
+        api.products.create(newProduct, () => {
+            console.log('HIT FUNC()')
+        })
     
     }
 
