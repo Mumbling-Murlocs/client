@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Should render the way we expect 1`] = `
+<div
+  className="sc-VigVT gUteem"
+>
+  <form
+    className="sc-gzVnrw eqCBFZ"
+    id={undefined}
+    onSubmit={[Function]}
+  >
+    <h3
+      className="sc-htoDjs fbZTTv"
+    >
+      Hello Stranger!
+    </h3>
+    <label
+      className="sc-dnqmqq gxITcO"
+    >
+      Email
+      <span />
+    </label>
+    <input
+      autoComplete="nope"
+      autoFocus={null}
+      className="sc-iwsKbI kxDmNQ"
+      name="email"
+      onChange={null}
+      placeholder={undefined}
+      step={null}
+      type="email"
+    />
+    <label
+      className="sc-dnqmqq gxITcO"
+    >
+      Password
+      <span />
+    </label>
+    <input
+      autoComplete="nope"
+      autoFocus={null}
+      className="sc-iwsKbI kxDmNQ"
+      name="password"
+      onChange={null}
+      placeholder={undefined}
+      step={null}
+      type="password"
+    />
+    <p
+      className="sc-gqjmRU cKmdHu"
+    />
+    <button
+      className="formButton sc-jTzLTM ffePeW"
+    />
+    <a
+      className="sc-gZMcBi htfulI"
+      href="/register"
+      onClick={[Function]}
+    >
+      Need to register a new account?
+    </a>
+    <div />
+  </form>
+</div>
+`;

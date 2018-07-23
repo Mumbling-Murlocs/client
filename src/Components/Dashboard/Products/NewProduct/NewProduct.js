@@ -1,10 +1,9 @@
 import React from 'react'
-import {Body} from './NewProduct.styles'
+import {Body, Button} from './NewProduct.styles'
 import Form from '../../../../UI/Form'
 import FormField from '../../../../UI/FormField'
 import TextArea from '../../../../UI/TextArea'
-import Button from '../../../../UI/Button'
-import Modal from '../../../../UI/Modal'
+
 
 
 const NewProduct = (props) => {
@@ -19,7 +18,7 @@ const NewProduct = (props) => {
                     <FormField  label="Product QTY" name="stockQty" type="number" onChange="" />
                     <TextArea label="Product Description" name="description" type="text" onChange="" />
 
-                    <Button  text="Create new product" />
+                    <Button>Create new product</Button>
                 </Form>
             </div>
         </Body>

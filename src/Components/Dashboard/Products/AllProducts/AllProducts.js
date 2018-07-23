@@ -8,7 +8,7 @@ const AllProducts = (props) => {
 
     return(
         <Body>
-            {productsArray && productsArray.map(product => <Product product={product}/>)}
+            { Array.isArray(productsArray) && productsArray.map(product => <Product product={product}/>)}
         </Body>  
     )
 }

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { styleVariables } from '../../../../Assets/Styles';
+import { styleVariables, Default } from '../../../../Assets/Styles';
 import { Link } from 'react-router-dom'
 const { colors } = styleVariables
 
@@ -20,18 +20,10 @@ const MainMenuStyle = styled.div`
     flex-direction: column;
 `
 
-const StyledLink = styled(Link)`
-    color: ${colors.white};
-    text-decoration: none;
-    padding: 10px 0;
-    font-weight: bold;
-
-    &:visited {
-        color: ${colors.white};
-    }
+const MainMenuLink = Default.Link.extend`
 `
 
 export { 
     MainMenuStyle,
-    StyledLink
+    MainMenuLink
  } 

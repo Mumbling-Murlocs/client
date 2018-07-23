@@ -1,9 +1,8 @@
 
 import styleVariables from './styleVariables'
-import defaultStyles from './defaultStyles'
+import Default from './defaultStyles'
 
-console.log(defaultStyles)
 export {
     styleVariables,
-    defaultStyles
+    Default
 }

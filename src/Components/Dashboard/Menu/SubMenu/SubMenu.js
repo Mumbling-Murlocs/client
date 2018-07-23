@@ -11,8 +11,6 @@ import StaffLinks from './SubLinks/StaffLinks';
 
 const SubMenu = (props) => {
     const {path} = store.getState()
-    console.log(path)
-
     let subMenuLink = null
 
         if(path === '/orders') { 

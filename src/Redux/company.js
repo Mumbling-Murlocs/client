@@ -1,30 +1,24 @@
-import helpers from '../Helpers'
-
-
-const {api} = helpers
 
 
 const companyCrud = (state, action) => {
-    const { customAction, newCompany, editedCompany, companyId, companyOwnerId } = action
+    const { customAction, newlyCreated, all, updated, id } = action
     const { currentUser } = state
 
     switch (customAction) {
 
         case 'create':
         
-            return { ...state, currentUser: {...currentUser, company: api.company.create(newCompany)} }
-
+            return { ...state, currentUser: {...currentUser, company: newlyCreated } }
 
 
         case 'update':
        
-            return  api.company.update(companyId, editedCompany, () => {
+            return { ...state, currentUser: { ...currentUser, company: updated } }
 
-                return { ...state, currentUser: { ...currentUser, company: editedCompany } }
-
-            })
-     
-
+        case 'all_suppliers':
+            const suppliers = all.filter(supplier => supplier.accountType === 'supplier')
+            
+            return { ...state, suppliers: suppliers }
 
         // case 'delete':
 

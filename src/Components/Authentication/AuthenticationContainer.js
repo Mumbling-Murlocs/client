@@ -1,15 +1,20 @@
 import React, { Component, Fragment } from 'react'
-import { axiosApi, setJwt } from '../../Api/init'
-import decodeJWT from 'jwt-decode'
+import { setJwt } from '../../Api/init'
 import Register from './Register'
 import Login from './Login'
 import CreateCompany from './CreateCompany'
 import store from '../../Redux/store'
+import helpers from '../../Helpers'
+
+
+const { api } = helpers
+
 
 
 
 class AuthenticationContainer extends Component {
 
+    // These 'StoreUser' functions are to set and retrieve data form localStorage in the users browser
     get storeUser() {
         return localStorage.user && JSON.parse(localStorage.user)
     }
@@ -18,46 +23,29 @@ class AuthenticationContainer extends Component {
         localStorage.setItem('user', JSON.stringify(userDetails))
     }
 
-    authenticate = async (e, url) => {
-        try {
-            e.preventDefault()
-            const form = e.target.elements
+    // This authenticate function allows for both registration and sign in 
+    authenticate = (e, url) => {
+        e.preventDefault()
+        const form = e.target.elements
 
-            const response = await axiosApi.post(`/users${url}`, {
-                email: form.email.value,
-                password: form.password.value
-            })
-
-            const token = response.data.token
-            const user = token && decodeJWT(token)
-            user.token = token
-
-            setJwt(user)
-
-
-            store.dispatch({
-                type: 'set_loggedIn',
-                loggedIn: true,
-                currentUser: user
-
-            })
-            this.storeUser = user
-            this.props.history.push('/dashboard')
-        } catch (error) {
-            store.dispatch({
-                type: 'set_loginError',
-                loginError: error.message
-            })
+        const newUser = {
+            email: form.email.value,
+            password: form.password.value,
+            firstName: form.firstName && form.firstName.value,
+            lastName: form.lastName && form.lastName.value
         }
+
+        api.user.authenticate(newUser, url, (registeredUser) => {
+            this.storeUser = registeredUser
+            this.props.history.push('/dashboard')
+        })
+
     }
 
     expiryCheck = () => {
         const user = this.storeUser
-
-    
         const isExpired = user && (user.exp * 1000) - Date.now()
  
-
         if (isExpired >= 0) {
             setJwt(user)
             store.dispatch({
@@ -74,18 +62,6 @@ class AuthenticationContainer extends Component {
         this.expiryCheck()
     }
 
-    signOut = () => {
-        axiosApi.get('/users/logout').then(() => {
-            localStorage.removeItem('user')
-
-            store.dispatch({
-                type: 'set_loggedIn',
-                loggedIn: false,
-                currentUser: null
-            })
-        })
-    }
-
     createCompany = (e) => {
         e.preventDefault()
         const form = e.target.elements
@@ -100,21 +76,21 @@ class AuthenticationContainer extends Component {
             companyOwnerId: store.getState().currentUser.sub
         }
 
-        store.dispatch({
-            type: 'company',
-            customAction: 'create',
-            newCompany: newCompany
-        })
         
-        this.storeUser = store.getState().currentUser
-        this.props.history.push('/dashboard')
+        api.company.create(newCompany, (newCompany) => {
+            const currentUser = store.getState().currentUser
+            api.user.update(currentUser.sub, {company: newCompany})
+            this.storeUser = currentUser
+            this.props.history.push('/dashboard')
+        })      
     }
 
+
     render() {
-        // console.log(this.props, 'Hello')
-        const {path} = this.props.match 
+        const {path} = this.props.match
+        // console.log('THIS.PROPS IN AC', this.props)
+        // console.log(path) 
         const {loginError} = store.getState()
-        // console.log(store.getState())
         return(
             <Fragment>
                     {path === '/register' && <Register registerError={loginError} url={path} register={this.authenticate} />}

@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
 import Form from '../../UI/Form'
 import FormField from '../../UI/FormField'
-import Button from '../../UI/Button'
-import {StyledLink, ErrorMessage, Center} from './Auth.styles.js'
+import {StyledLink, ErrorMessage, Center, Button} from './Auth.styles.js'
 
 
 
@@ -11,7 +10,7 @@ const Login = (props) => {
     const { loginError, login, url } = props
     const {user} = localStorage
 
-    const localName = user ? `Hello, ${user.email}` : 'Hello Stranger!'
+    const localName = user ? `Hello, ${user.firstName}` : 'Hello Stranger!'
 
     return (
         <Fragment>

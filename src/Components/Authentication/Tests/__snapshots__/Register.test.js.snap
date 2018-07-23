@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register Should render the way we expect 1`] = `
+<div
+  className="sc-VigVT gUteem"
+>
+  <form
+    className="sc-gzVnrw eqCBFZ"
+    id={undefined}
+    onSubmit={[Function]}
+  >
+    <h3
+      className="sc-htoDjs fbZTTv"
+    >
+      Register an account!
+    </h3>
+    <label
+      className="sc-dnqmqq gxITcO"
+    >
+      First Name
+      <span />
+    </label>
+    <input
+      autoComplete="nope"
+      autoFocus={null}
+      className="sc-iwsKbI kxDmNQ"
+      name="firstName"
+      onChange={null}
+      placeholder={undefined}
+      step={null}
+      type="text"
+    />
+    <label
+      className="sc-dnqmqq gxITcO"
+    >
+      Last Name
+      <span />
+    </label>
+    <input
+      autoComplete="nope"
+      autoFocus={null}
+      className="sc-iwsKbI kxDmNQ"
+      name="lastName"
+      onChange={null}
+      placeholder={undefined}
+      step={null}
+      type="text"
+    />
+    <label
+      className="sc-dnqmqq gxITcO"
+    >
+      Email
+      <span />
+    </label>
+    <input
+      autoComplete="nope"
+      autoFocus={null}
+      className="sc-iwsKbI kxDmNQ"
+      name="email"
+      onChange={null}
+      placeholder={undefined}
+      step={null}
+      type="email"
+    />
+    <label
+      className="sc-dnqmqq gxITcO"
+    >
+      Password
+      <span />
+    </label>
+    <input
+      autoComplete="nope"
+      autoFocus={null}
+      className="sc-iwsKbI kxDmNQ"
+      name="password"
+      onChange={null}
+      placeholder={undefined}
+      step={null}
+      type="password"
+    />
+    <p
+      className="sc-gqjmRU cKmdHu"
+    >
+      something
+    </p>
+    <button
+      className="sc-jTzLTM ffePeW"
+    >
+      Create account
+    </button>
+    <a
+      className="sc-gZMcBi htfulI"
+      href="/login"
+      onClick={[Function]}
+    >
+      Already have an account?
+    </a>
+    <div />
+  </form>
+</div>
+`;

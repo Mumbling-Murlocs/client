@@ -1,6 +1,7 @@
 import { createStore } from 'redux'
 import productsCrud from './products'
 import companyCrud from './company'
+import userCrud from './user'
 
 
 // Sets the initial state of the app
@@ -13,7 +14,8 @@ const initialState = {
     loginError: null,
     loggedIn: false,
     path: null,
-    currentUser: null
+    currentUser: null,
+    selectedSupplier: null
 }
 
 // These are the reducers/actions that change the state ("setState")
@@ -21,10 +23,13 @@ const reducer = (state, action) => {
     // console.log(state)
 
     switch (action.type) {
-        case 'products':
+        case '/products':
             return productsCrud(state, action)
 
-        case 'company':
+        case '/user':
+            return userCrud(state, action)
+
+        case '/company':
             return companyCrud(state, action)
 
         case 'set_loginError':

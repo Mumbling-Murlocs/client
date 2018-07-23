@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { styleVariables } from '../../../../Assets/Styles';
+import { styleVariables, Default } from '../../../../Assets/Styles';
 const { colors } = styleVariables
 
 const Body = styled.div`
@@ -9,8 +9,19 @@ const Body = styled.div`
     justify-content: center;
     align-items: center;
 `
-
+const Button = Default.Button.extend`
+    border: 2px solid ${colors.orange};
+    color: ${colors.white};
+    background: ${colors.orange};
+    width: 100%
+    &:hover {
+        color: ${colors.white};
+        background: rgb(214, 139, 33);
+        border: 2px solid rgb(214, 139, 33);
+    }
+`
 
 export {
-    Body
+    Body,
+    Button
 }
