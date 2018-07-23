@@ -16,16 +16,20 @@ class ApiMethods {
 // CRUD - CREATE
     create = async (obj, func) => {
         // "obj" is the new object you are creating
-        func = func || null
-        const response = await axiosApi.post(this.endpoint, obj)
+        try {
+            const response = await axiosApi.post(this.endpoint, obj)
+    
+             store.dispatch({
+                type: this.endpoint,
+                customAction: 'create',
+                newlyCreated: response.data
+            })
+    
+            func && func(response.data)
 
-         store.dispatch({
-            type: this.endpoint,
-            customAction: 'create',
-            newlyCreated: response.data
-        })
-
-        func(response.data)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 // CRUD - READ-ALL (Also has an options parameter that can be passed in to deterimne which customAction in the switch is to be used... So we can filter if neccessary)
@@ -62,7 +66,6 @@ class ApiMethods {
     update = async (id, obj, func) => {
         // The middle paramater here passed as "obj" are the fields that are being updated.
         try {
-            func = func || null
             
             const response = await axiosApi.put(this.endpoint + `/${id}`, obj)
             console.log(response)
@@ -74,17 +77,16 @@ class ApiMethods {
                 id: id
             })
     
-            func()
+            func && func()
 
         } catch (error) {
-            console.log(error.response)
+            console.log('ERROR HIT', error.response)
         }
     }
 
 // CRUD - DESTROY
     destroy = (id, authorized, func) => {
         // The middle paramater here passes the objects "ownership" id... Consider it as a foreign key e.g. user_id
-        func = func || null
 
         axiosApi.delete(this.endpoint + `/${id}`, {data: { id: authorized.userId }})  
         
@@ -94,7 +96,7 @@ class ApiMethods {
             id: id
         })
 
-        func()
+        func && func()
     }
 
     authenticate = async (newUser, url, func) => {
@@ -114,7 +116,7 @@ class ApiMethods {
                 currentUser: user
             })
 
-            func(user)
+            func && func(user)
 
           
         } catch (error) {

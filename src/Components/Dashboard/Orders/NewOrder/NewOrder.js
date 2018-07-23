@@ -1,7 +1,9 @@
 import React from 'react'
 import { Body, Button, MainPanel, PanelContainer, Panel, PanelTitle } from './NewOrder.styles'
 import ViewSupplier from '../SuppliersDRAFT/ViewSupplier'
-import AllSuppliers from '../SuppliersDRAFT/AllSuppliers'
+import AllSuppliers from '../../Suppliers/AllSuppliers/AllSuppliers'
+import store from '../../../../Redux/store'
+
 
 
 
@@ -27,7 +29,7 @@ const NewOrder = (props) => {
     if (props.selectedSupplier) {
         supplierPanelContent = <ViewSupplier />
     } else {
-        supplierPanelContent = <AllSuppliers />
+        supplierPanelContent = <AllSuppliers suppliers={store.getState().suppliers} />
     }
     console.log(props)
     return (

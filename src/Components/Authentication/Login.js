@@ -19,7 +19,7 @@ const Login = (props) => {
                     <FormField label="Email" name="email" type="email" onChange="" />
                     <FormField label="Password" name="password" type="password" onChange="" />
                     <ErrorMessage>{loginError}</ErrorMessage>
-                    <Button className="formButton" text="Sign In" />
+                    <Button className="formButton">Sign In</Button>
                     <StyledLink to="/register">Need to register a new account?</StyledLink>
                 </Form>
             </Center>
