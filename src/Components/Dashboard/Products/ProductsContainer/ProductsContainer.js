@@ -6,17 +6,26 @@ import AllProducts from '../AllProducts/AllProducts'
 import store from '../../../../Redux/store'
 import helpers from '../../../../Helpers'
 
+import {EditButton, DeleteButton} from '../AllProducts/ProductTile/ProductTile.styles'
+
 
 const { api } = helpers
 
 class ProductsContainer extends Component {
 
+    deleteProduct = (product) => {
+        api.products.destroy(product, product.companyId, () => {
+            this.props.history.push('/dashboard/products')
+        })
+    }
+
     createProduct = (e) => {
         e.preventDefault()
         const form = e.target.elements
+        console.log("In funct createProduct", store.getState().currentUser.company._id)
         
         const newProduct = {
-            // companyId: localStorage.user.company._id,
+            companyId: store.getState().currentUser.company._id,
             price: form.price.value,
             productId: form.productId.value,
             name: form.name.value,
@@ -28,7 +37,7 @@ class ProductsContainer extends Component {
 
         // Replaced store.dispatch with this for our state updates and api requests
         api.products.create(newProduct, () => {
-            console.log('HIT FUNC()')
+            this.props.history.push('/dashboard/products')
         })
     
     }
@@ -47,11 +56,10 @@ class ProductsContainer extends Component {
         return (
             <Fragment>
                 <Header>
-                    
                 </Header>
                 <BodyWindow>
                     <Route exact path='/dashboard/products' render={(rProps) => (
-                        <AllProducts {...rProps} productsArray={products}  />
+                        <AllProducts {...rProps} deleteProduct={this.deleteProduct} productsArray={products}  />
                     )}  />
                     <Route path='/dashboard/products/new' render={(rProps) => (
                         <NewProduct {...rProps} onSubmit={this.createProduct} />

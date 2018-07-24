@@ -1,13 +1,15 @@
 import styled from 'styled-components'
-import { styleVariables } from '../../../../Assets/Styles';
-const { colors } = styleVariables
+import { Default } from '../../../../Assets/Styles'
 
 const Body = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-content: flex-start;
+    padding: 20px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
 `
 
 

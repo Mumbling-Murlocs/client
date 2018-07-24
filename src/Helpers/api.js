@@ -85,15 +85,15 @@ class ApiMethods {
     }
 
 // CRUD - DESTROY
-    destroy = (id, authorized, func) => {
+    destroy = (obj, ownerId, func) => {
         // The middle paramater here passes the objects "ownership" id... Consider it as a foreign key e.g. user_id
 
-        axiosApi.delete(this.endpoint + `/${id}`, {data: { id: authorized.userId }})  
+        axiosApi.delete(this.endpoint + `/${obj._id}`, {data: { ownerId }})  
         
         store.dispatch({
             type: this.endpoint,
             customAction: 'delete',
-            id: id
+            id: obj._id
         })
 
         func && func()
