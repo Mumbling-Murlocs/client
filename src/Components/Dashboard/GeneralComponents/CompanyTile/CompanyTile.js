@@ -1,19 +1,20 @@
 import React from 'react'
-import {TileBody, TileIMG, TextBox, CompanyName, CompanyType, CompanyAddress, Button} from './CompanyTile.styles'
+import { TileBody, TileIMG, TextBox, CompanyName, CompanyType, CompanyAddress, ButtonLink} from './CompanyTile.styles'
 
 const CompanyTile = (props) => {
 
-    const { company } = props
+    const { company, viewSupplier } = props
 
     return (
-        <TileBody>
+        <TileBody key={company._id}>
                 <TileIMG url={company.image}>
                 </TileIMG>
                 <TextBox>
                     <CompanyName>{company.name}</CompanyName>
                     <CompanyType>{company.businessType}</CompanyType>
                     <CompanyAddress>{company.address}</CompanyAddress>
-                    <Button>View Supplier</Button>
+                    <ButtonLink onClick={() => viewSupplier(company._id)} to={`/dashboard/suppliers/id/${company._id}`}>View Supplier</ButtonLink>
+                   
                 </TextBox>
         </TileBody>
     )

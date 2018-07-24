@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import styleVariables from './styleVariables'
 import { Link } from 'react-router-dom'
-import defaultImg from '../Images/murloc.png'
+import defaultImg from '../Images/default.png'
 const { colors } = styleVariables
 
 const Default = {
@@ -13,6 +13,27 @@ const Default = {
 
                 &:visited {
                         color: ${colors.white};
+                }
+    `, ButtonLink: styled(Link)`
+                display: inline-block;
+                border-radius: 2.5px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: 1s;
+                border: 2px solid ${colors.lightGrey};
+                color: grey;
+                background: ${colors.lightGrey};
+                height: 35px;
+                width: fit-content;
+                text-decoration: none;
+                padding: 10px;
+                
+                font-weight: bold;
+                font-size: 1.2rem;
+
+                &:hover {
+                        background: ${colors.darkGrey};
+                        border: 2px solid ${colors.darkGrey};
                 }
     `, Body: styled.div`
                 height: 100%;

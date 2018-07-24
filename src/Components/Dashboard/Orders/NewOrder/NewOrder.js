@@ -1,7 +1,7 @@
 import React from 'react'
-import { Body, Button, MainPanel, PanelContainer, Panel, PanelTitle } from './NewOrder.styles'
-import ViewSupplier from '../SuppliersDRAFT/ViewSupplier'
-import AllSuppliers from '../../Suppliers/AllSuppliers/AllSuppliers'
+import { Body, MainPanel, PanelContainer, Panel, PanelTitle } from './NewOrder.styles'
+import ActiveSupplier from '../SupplierPanel/ActiveSupplier/ActiveSupplier'
+import SupplierList from '../SupplierPanel/SupplierList/SupplierList'
 import store from '../../../../Redux/store'
 
 
@@ -25,13 +25,17 @@ import store from '../../../../Redux/store'
 //     orderPaid: Boolean,
 
 const NewOrder = (props) => {
+    const { activeSupplier, catelogue, setActiveSupplier, suppliers } = props
+
+
+
     let supplierPanelContent = null
-    if (props.selectedSupplier) {
-        supplierPanelContent = <ViewSupplier />
+    if (activeSupplier) {
+        supplierPanelContent = <ActiveSupplier activeSupplier={activeSupplier} catelogue={catelogue} />
     } else {
-        supplierPanelContent = <AllSuppliers suppliers={store.getState().suppliers} />
+        supplierPanelContent = <SupplierList setActiveSupplier={setActiveSupplier} suppliers={suppliers} />
     }
-    console.log(props)
+
     return (
         <Body>
            <MainPanel>
@@ -47,7 +51,6 @@ const NewOrder = (props) => {
                 <PanelContainer>
                     <PanelTitle>Suppliers</PanelTitle>
                         {supplierPanelContent}
-                    
                 </PanelContainer>
            </MainPanel>
         </Body>

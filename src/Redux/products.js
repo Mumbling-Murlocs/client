@@ -15,6 +15,9 @@ const productsCrud = (state, action) => {
         case 'get_all':
             return { ...state, products: all }
 
+        case 'set_supplier_catalogue':
+            return { ...state, supplierCatalogue: all }
+
 
         case 'update':
             let indexUpdate = state.products.findIndex(product => product._id === id)
@@ -29,7 +32,7 @@ const productsCrud = (state, action) => {
 
      
         case 'delete':
-            let indexDelete = state.products.findIndex(product => product._id == id)
+            let indexDelete = state.products.findIndex(product => product._id === id)
 
             if (indexDelete >= 0) {
                 const newProductsArray = [...state.products]
@@ -37,6 +40,10 @@ const productsCrud = (state, action) => {
 
                 return { ...state, products: newProductsArray }
             }
+            return state
+
+        default:
+                console.log(`Redux: Action not recognized: ${action.customAction}`)
             return state
     }
        

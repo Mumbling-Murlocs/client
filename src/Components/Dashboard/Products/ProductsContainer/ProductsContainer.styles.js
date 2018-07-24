@@ -1,6 +1,4 @@
-import styled from 'styled-components'
-import { styleVariables, Default } from '../../../../Assets/Styles'
-const { colors } = styleVariables
+import { Default } from '../../../../Assets/Styles'
 
 
 

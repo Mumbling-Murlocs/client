@@ -18,7 +18,7 @@ const CreateCompany = (props) => {
                 <Form onSubmit={(e) => props.createCompany(e)} title={title}>
                     <FormField label="Company Name" name="name" type="text"  />
                     <FormField label="ABN" name="abn" type="text"  />
-                    <FormField label="What type of company do you run?" name="businessType" type="text"  />
+                    <FormField label="What type of company do you run?" name="companyType" type="text"  />
                     <FormField label="Company Address" name="address" type="text"  />
                     <FormField label="Company Phone Number" name="phoneNumber" type="text"  />
                     

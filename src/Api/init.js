@@ -15,9 +15,9 @@ const setJwt = (user) => {
 
 // TODO
 
-const setObjId = (id) => {
-    
-}
+// const setSupplierId = (id) => {
+//     axiosApi.defaults.headers.common['supplierId'] = id
+// }
 
 
 

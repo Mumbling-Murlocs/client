@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { styleVariables } from '../../../../Assets/Styles'
-const { colors } = styleVariables
 
 
 const SideBarLayout = styled.div`

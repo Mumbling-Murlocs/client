@@ -2,7 +2,7 @@
 
 
 const userCrud = (state, action) => {
-    const { customAction, newUser, updatedUser, userId } = action
+    const { customAction } = action
     
 
     switch (customAction) {
@@ -17,9 +17,10 @@ const userCrud = (state, action) => {
 
         case 'update':
 
-            
-
             return state
+
+
+
 
 
 
