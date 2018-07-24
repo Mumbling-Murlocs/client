@@ -15,7 +15,8 @@ const initialState = {
     loggedIn: false,
     path: null,
     currentUser: null,
-    activeSupplier: null
+    activeSupplier: null,
+    supplierCatalogue: []
 }
 
 // These are the reducers/actions that change the state ("setState")
@@ -41,8 +42,6 @@ const reducer = (state, action) => {
         case 'set_path':
             return { ...state, path: action.path }
 
-        case 'set_active_supplier':
-            return { ...state, activeSupplier: action.supplier }
 
         default:
             if (!action.type.match(/@@redux.*/)) {

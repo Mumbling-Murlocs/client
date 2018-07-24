@@ -33,21 +33,26 @@ class ApiMethods {
     }
 
 // CRUD - READ-ALL (Also has an options parameter that can be passed in to deterimne which customAction in the switch is to be used... So we can filter if neccessary)
-    all = async (options) => {
+    all = async (options, func) => {
         try {
+
+            console.log('IN API HELPER', options)
+            if(options.header) {
+                axiosApi.defaults.headers.common[options.header] = options.headerValue
+            }
             const response = await axiosApi.get(this.endpoint)
     
-            const data = null
-    
             if(!options) {
-                options = 'get_all'
+                options.customAction = 'get_all'
             }
     
             store.dispatch({
                 type: this.endpoint,
-                customAction: options,
+                customAction: options.customAction,
                 all: response.data
             })
+
+            func && func()
 
         } catch (error) {
             console.log(error.response)
@@ -60,7 +65,7 @@ class ApiMethods {
     // find = async (id) => {
     //     const object = await axiosApi.get(this.endpoint + `/${id}`)
     //     return object
-    // }
+    // }    
 
  // CRUD - UPDATE
     update = async (id, obj, func) => {

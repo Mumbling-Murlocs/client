@@ -1,5 +1,4 @@
 import React from 'react'
-import { productDisplay } from './Products.styles'
 
 const Product = (props) => {
 

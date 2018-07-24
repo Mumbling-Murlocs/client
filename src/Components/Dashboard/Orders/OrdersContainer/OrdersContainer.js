@@ -15,11 +15,26 @@ class OrdersContainer extends Component {
     }
 
     fetchSuppliers = () => {
-        api.company.all('all_suppliers')
+        api.company.all({customAction: 'all_suppliers'})
+    }
+
+    // This function sets the active supplier and their product catelogue in the store for the "ViewSupplier" component.
+    setActiveSupplier = (id) => {
+        store.dispatch({
+            type: '/company',
+            customAction: 'set_active_supplier',
+            activeSupplier: store.getState().suppliers.find(supplier => supplier._id === id)
+        })
+        api.products.all({
+            customAction: 'set_supplier_catalogue',
+            header: 'supplier_id',
+            headerValue: id
+        })
     }
 
     
     render() {
+        
 
         return (
             <Fragment>
@@ -29,7 +44,7 @@ class OrdersContainer extends Component {
                 <BodyWindow>
                 
                     <Route path='/dashboard/orders/new' render={(rProps) => (
-                        <NewOrder selectedSupplier={store.getState().selectedSupplier} {...rProps} onSubmit={this.createProduct} />
+                        <NewOrder setActiveSupplier={this.setActiveSupplier} suppliers={store.getState().suppliers} activeSupplier={store.getState().activeSupplier} catelogue={store.getState().supplierCatalogue} {...rProps} onSubmit={this.createProduct} />
                     )} />
                 
                 </BodyWindow>

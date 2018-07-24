@@ -69,7 +69,7 @@ class AuthenticationContainer extends Component {
        const newCompany = {
             name: form.name.value,
             abn: form.abn.value,
-            businessType: form.businessType.value,
+            companyType: form.companyType.value,
             address: form.address.value,
             phoneNumber: form.phoneNumber.value,
             accountType: 'purchaser',
