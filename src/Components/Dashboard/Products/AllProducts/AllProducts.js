@@ -1,15 +1,16 @@
 import React from 'react'
 import {Body} from './AllProducts.styles'
-import Product from '../Product'
+import ProductTile from './ProductTile/ProductTile'
 
 
 const AllProducts = (props) => {
-    const {productsArray} = props
+    const {productsArray, deleteProduct} = props
 
     return(
-        <Body>
-            { Array.isArray(productsArray) && productsArray.map(product => <Product product={product}/>)}
-        </Body>  
+        
+            <Body>
+                { Array.isArray(productsArray) && productsArray.map(product => <ProductTile deleteProduct={deleteProduct} product={product}/>)}
+            </Body> 
     )
 }
 

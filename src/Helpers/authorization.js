@@ -28,4 +28,13 @@ const isOwner = (obj) => {
     return null
 }
 
-export default {isTeacher, isOwner, isAdmin}
+const canDelete = (objId, checkId) => {
+    if (localStorage.user.role === 'admin') {
+        return true
+    } else if (objId === checkId) {
+        return true
+    }
+    return null
+}
+
+export default {isTeacher, isOwner, isAdmin, canDelete}
