@@ -5,12 +5,12 @@ const { colors } = styleVariables
 
 const TileBody = styled.div`
     display: flex;
-    width: 350px;
-    height: 150px;
+    width: ${props => props.width ? props.width : '350px'};
+    height: ${props => props.height ? props.height : '150px'};
     border-radius: 5px;
     background: ${colors.white};
-    margin-right: 30px;
-    margin-top: 30px;
+    margin-right: ${props => props.margin ? props.margin : '30px'};
+    margin-top: ${props => props.margin ? props.margin : '30px'};
 `
 const TileIMG = Default.Image.extend`
     
@@ -40,14 +40,13 @@ const CompanyAddress = styled.p`
 `
 
 const ButtonLink = Default.ButtonLink.extend`
-    margin-top: 10px;
-    text-align: center;
-    padding: 0 auto;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
     color: ${colors.white}
     background: ${colors.orange};
     border-color: ${colors.orange};
     height: 45px;
-    width: 100%;
     &:hover {
         border-color: ${colors.lightOrange};
         background: ${colors.lightOrange};

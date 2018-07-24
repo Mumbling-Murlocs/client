@@ -36,6 +36,11 @@ class ProductsContainer extends Component {
         }
 
         // Replaced store.dispatch with this for our state updates and api requests
+        store.dispatch({
+            type: 'products',
+            customAction: 'create',
+            product: newProduct
+        })
         api.products.create(newProduct, () => {
             this.props.history.push('/dashboard/products')
         })

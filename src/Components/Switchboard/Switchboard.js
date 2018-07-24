@@ -8,7 +8,6 @@ import store from '../../Redux/store'
 
 
 const Switchboard = (props) => {
-    const { loggedIn } = store.getState()
  
     return(
         

@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { styleVariables, Default } from '../../../../Assets/Styles';
-import { Link } from 'react-router-dom'
 const { colors } = styleVariables
 
 

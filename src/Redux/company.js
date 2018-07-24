@@ -1,7 +1,7 @@
 
 
 const companyCrud = (state, action) => {
-    const { customAction, newlyCreated, all, updated, id } = action
+    const { customAction, newlyCreated, all, updated, activeSupplier } = action
     const { currentUser } = state
 
     switch (customAction) {
@@ -20,6 +20,11 @@ const companyCrud = (state, action) => {
             
             return { ...state, suppliers: suppliers }
 
+        case 'set_active_supplier':
+            // const suppliers = all.filter(supplier => supplier.accountType === 'supplier')
+
+            return { ...state, activeSupplier }
+
         // case 'delete':
 
         //     return api.company.delete(companyId, companyOwnerId, () => {
@@ -33,6 +38,10 @@ const companyCrud = (state, action) => {
         //         }
         //         return state
         //     })  
+        default:
+            console.log(`Redux: Action not recognized: ${action.customAction}`)
+            return state
+
     }
        
 }

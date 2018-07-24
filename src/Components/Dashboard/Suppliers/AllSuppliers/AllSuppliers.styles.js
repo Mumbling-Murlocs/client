@@ -1,13 +1,13 @@
-import styled from 'styled-components'
-import { styleVariables, Default } from '../../../../Assets/Styles';
-const { colors } = styleVariables
+import { Default } from '../../../../Assets/Styles';
 
 
 const Body = Default.Body.extend`
     display: flex;
-    justif-content: flex-start;
+    justify-content: flex-start;
+    align-content: flex-start;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 0 95px;
+
 `
 
 export {

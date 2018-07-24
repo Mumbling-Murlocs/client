@@ -30,6 +30,7 @@ class Dashboard extends Component {
                             src={logoPath}
                             height='75%'
                             width='75%'
+                            alt='Knife and spoon logo'
 
                         />
                     </LogoBackground> 
