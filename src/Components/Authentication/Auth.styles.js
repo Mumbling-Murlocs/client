@@ -38,11 +38,21 @@ const Button = Default.Button.extend`
         border: 2px solid rgb(214, 139, 33);
     }
 `
+const AddressBox = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+`
+const AdressContain = styled.div`
+    width: 45%;
+`
 
 export {
     StyledLink,
     ErrorMessage,
     Center,
-    Button
+    Button,
+    AddressBox,
+    AdressContain
 }
 

@@ -6,7 +6,7 @@ import AllProducts from '../AllProducts/AllProducts'
 import store from '../../../../Redux/store'
 import helpers from '../../../../Helpers'
 
-import {EditButton, DeleteButton} from '../AllProducts/ProductTile/ProductTile.styles'
+
 
 
 const { api } = helpers
@@ -49,7 +49,11 @@ class ProductsContainer extends Component {
 
     componentDidMount () {
         // Replaced store.dispatch with this for our state updates and api requests
-        api.products.all()
+        api.products.all({
+            customAction: 'set_products',
+            header: 'supplier_id',
+            headerValue: store.getState().currentUser.company._id
+        })
        
     }
 
@@ -61,11 +65,12 @@ class ProductsContainer extends Component {
         return (
             <Fragment>
                 <Header>
+
                 </Header>
                 <BodyWindow>
                     <Route exact path='/dashboard/products' render={(rProps) => (
-                        <AllProducts {...rProps} deleteProduct={this.deleteProduct} productsArray={products}  />
-                    )}  />
+                        <AllProducts {...rProps} deleteProduct={this.deleteProduct} productsArray={products} />
+                    )} />
                     <Route path='/dashboard/products/new' render={(rProps) => (
                         <NewProduct {...rProps} onSubmit={this.createProduct} />
                     )} />

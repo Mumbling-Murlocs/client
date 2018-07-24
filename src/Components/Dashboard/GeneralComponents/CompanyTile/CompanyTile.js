@@ -12,7 +12,9 @@ const CompanyTile = (props) => {
                 <TextBox>
                     <CompanyName>{company.name}</CompanyName>
                     <CompanyType>{company.businessType}</CompanyType>
-                    <CompanyAddress>{company.address}</CompanyAddress>
+                    <CompanyAddress>{company && company.address.lineOne}</CompanyAddress>
+                    <CompanyAddress>{company && company.address.city}</CompanyAddress>
+                <CompanyAddress>{company && company.address.country + ', ' + company.address.postcode}</CompanyAddress>
                     <ButtonLink onClick={() => viewSupplier(company._id)} to={`/dashboard/suppliers/id/${company._id}`}>View Supplier</ButtonLink>
                    
                 </TextBox>

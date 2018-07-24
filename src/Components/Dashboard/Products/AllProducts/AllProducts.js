@@ -1,18 +1,18 @@
 import React from 'react'
-import {Body} from './AllProducts.styles'
-import ProductTile from './ProductTile/ProductTile'
+import Tag from './AllProducts.styles'
+import Catelogue from '../../../../UI/Catelogue/Catelogue'
 
 
 const AllProducts = (props) => {
     const {productsArray, deleteProduct} = props
 
     return(
-        
-            <Body>
-                { Array.isArray(productsArray) && productsArray.map(product => <ProductTile deleteProduct={deleteProduct} product={product}/>)}
-            </Body> 
+
+            <Tag.Body>
+                <Catelogue catelogue={productsArray} />
+              
+            </Tag.Body> 
     )
 }
-
 
 export default AllProducts

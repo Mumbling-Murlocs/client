@@ -5,7 +5,7 @@ const { colors } = styleVariables
 
 const SupplierPanel = Default.Panel.extend`
     background-color: ${colors.white};
-    display: block;
+    display: flex;
 `
 const Name = styled.p`
     margin: 3px 0;

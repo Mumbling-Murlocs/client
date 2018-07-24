@@ -12,7 +12,7 @@ const productsCrud = (state, action) => {
             return { ...state, products: [...products, newlyCreated] }
 
 
-        case 'get_all':
+        case 'set_products':
             return { ...state, products: all }
 
         case 'set_supplier_catalogue':
