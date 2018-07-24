@@ -17,7 +17,6 @@ const ProductTile = (props) => {
                     <ProductName>{product.name}</ProductName>
                     <ProductPrice>${product.price}</ProductPrice>
                     <ProductStockQty>Quantity Available:  {product.stockQty}</ProductStockQty>
-                    <ProductCompanyId>Seller:  {product.companyId}</ProductCompanyId>
                     <ProductProductId>Internal SKU:  {product.productId}</ProductProductId>
                     <ProductDescription>{product.description}</ProductDescription>
                     <ButtonBox>

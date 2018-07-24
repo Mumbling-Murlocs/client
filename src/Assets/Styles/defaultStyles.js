@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import styleVariables from './styleVariables'
 import { Link } from 'react-router-dom'
-import defaultImg from '../Images/default.png'
+import defaultImg from '../Images/almond.jpg'
 const { colors } = styleVariables
 
 const Default = {

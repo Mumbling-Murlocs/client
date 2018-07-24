@@ -1,4 +1,5 @@
-import { Default } from '../../../../Assets/Styles'
+import  {Default}  from '../../../../Assets/Styles'
+
 
 
 const Header = Default.Header.extend`
@@ -13,6 +14,7 @@ const Header = Default.Header.extend`
 `
 const BodyWindow = Default.Window.extend`
 `
+
 export {
     Header,
     BodyWindow

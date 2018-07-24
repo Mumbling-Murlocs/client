@@ -5,7 +5,7 @@ const { colors } = styleVariables
 
 const MainMenuStyle = styled.div`
     position: absolute;
-    top: 20px;
+    top: 0;
     left: 0;
     width: 40%;
     height: 100%;

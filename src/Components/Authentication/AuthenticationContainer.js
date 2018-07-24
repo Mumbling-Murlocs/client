@@ -65,12 +65,18 @@ class AuthenticationContainer extends Component {
     createCompany = (e) => {
         e.preventDefault()
         const form = e.target.elements
+        const address = {
+            lineOne: form.lineOne.value,
+            city: form.city.value,
+            country: form.country.value,
+            postcode: form.postcode.value
+        }
 
        const newCompany = {
             name: form.name.value,
             abn: form.abn.value,
             companyType: form.companyType.value,
-            address: form.address.value,
+            address: address,
             phoneNumber: form.phoneNumber.value,
             accountType: 'purchaser',
             companyOwnerId: store.getState().currentUser.sub

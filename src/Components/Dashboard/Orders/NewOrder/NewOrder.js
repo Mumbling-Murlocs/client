@@ -2,6 +2,7 @@ import React from 'react'
 import { Body, MainPanel, PanelContainer, Panel, PanelTitle } from './NewOrder.styles'
 import ActiveSupplier from '../SupplierPanel/ActiveSupplier/ActiveSupplier'
 import SupplierList from '../SupplierPanel/SupplierList/SupplierList'
+import InvoiceTemplate from '../InvoiceTemplate/InvoiceTemplate'
 import store from '../../../../Redux/store'
 
 
@@ -35,23 +36,23 @@ const NewOrder = (props) => {
     } else {
         supplierPanelContent = <SupplierList setActiveSupplier={setActiveSupplier} suppliers={suppliers} />
     }
+    const SupplierTitle = activeSupplier ? `${activeSupplier.name} Product List` : 'My Supplier list'
 
     return (
         <Body>
            <MainPanel>
                <PanelContainer>
-                    <PanelTitle>New Order</PanelTitle>
-               <Panel>
-                   
-               </Panel>
+                    <PanelTitle>New Invoice</PanelTitle>
+                    <InvoiceTemplate />
+              
                </PanelContainer>
            </MainPanel>
 
            <MainPanel>
-                <PanelContainer>
-                    <PanelTitle>Suppliers</PanelTitle>
+            <PanelContainer>
+                    <PanelTitle>{SupplierTitle}</PanelTitle>
                         {supplierPanelContent}
-                </PanelContainer>
+            </PanelContainer>
            </MainPanel>
         </Body>
     )

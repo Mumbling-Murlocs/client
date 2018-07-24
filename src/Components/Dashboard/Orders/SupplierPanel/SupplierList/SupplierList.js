@@ -13,7 +13,9 @@ const AllSuppliers = (props) => {
                 <Card>
                     <Tag.Name>{supplier.name}</Tag.Name>
                     <Tag.P>{supplier.companyType}</Tag.P>
-                    <Tag.P>{supplier.address}</Tag.P>
+                        <Tag.P>{supplier.address.lineOne}</Tag.P>
+                        <Tag.P>{supplier.address.city}</Tag.P>
+                        <Tag.P>{`${supplier.address.country}, ${supplier.address.postcode}`}</Tag.P> 
                         <Tag.Button onClick={() => setActiveSupplier(supplier._id)}>Place Order</Tag.Button>
                 </Card>
                 )

@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react'
-import CustomTile from '../../GeneralComponents/CustomTile/CustomTile'
+import Catelogue from '../../../../UI/Catelogue/Catelogue'
 
 
-import { Body, MainPanelSupplier, MainPanelCatelogue, PanelContainer, Panel, PanelTitle, SupplierIMG, Details, AddButton, OrderButton, CatelogueContainer } from './ViewSupplier.style'
+import Tag from './ViewSupplier.style'
 
 const ViewSupplier = (props) => {
     const { catelogue, supplier, newOrder } = props
@@ -11,47 +11,31 @@ const ViewSupplier = (props) => {
 
     return(
         <Fragment>
-            <Body>
-                <MainPanelSupplier>
-                    <PanelContainer>
-                        <PanelTitle>Supplier details</PanelTitle>
-                        <Panel>
-                            <SupplierIMG url={supplier && supplier.image}>
-                            </SupplierIMG>
+            <Tag.Body>
+                <Tag.MainPanelSupplier>
+                    <Tag.PanelContainer>
+                        <Tag.PanelTitle>Supplier details</Tag.PanelTitle>
+                        <Tag.Panel>
+                            <Tag.SupplierIMG url={supplier && supplier.image}>
+                            </Tag.SupplierIMG>
                             <h3>{supplier && supplier.name}</h3>
-                            <Details>{supplier && supplier.businessType}</Details>
-                            <Details>{supplier && supplier.address}</Details>
-                            <Details>{supplier && supplier.deliverDays}</Details>
+                            <Tag.Details>{supplier && supplier.businessType}</Tag.Details>
+                            <Tag.Details>{supplier && supplier.address.lineOne}</Tag.Details>
+                            <Tag.Details>{supplier && supplier.address.city}</Tag.Details>
+                            <Tag.Details>{supplier && supplier.address.country + ', ' + supplier.address.postcode}</Tag.Details>
+                            <Tag.Details>{supplier && supplier.deliverDays}</Tag.Details>
                             <div>
-                                <AddButton>Add to favourites</AddButton>
-                                <OrderButton onClick={() => newOrder()}>Place an order</OrderButton>
+                                <Tag.AddButton>Add to favourites</Tag.AddButton>
+                                <Tag.OrderButton onClick={() => newOrder()}>Create an order</Tag.OrderButton>
                             </div>
                             
 
-                        </Panel>
-                    </PanelContainer>
-                </MainPanelSupplier>
+                        </Tag.Panel>
+                    </Tag.PanelContainer>
+                </Tag.MainPanelSupplier>
 
-                <MainPanelCatelogue>
-                    <PanelTitle>Supplier catalogue</PanelTitle>
-                    <CatelogueContainer>
-                       
-                            {catelogue && catelogue.map(product => {
-                                return(
-                                   
-                                    <CustomTile width='310px' margin='15px' key={product._id}>
-                                        <p>{product.name}</p>
-                                    </CustomTile>
-                                 
-                                )
-                            })}
-
-
-
-                      
-                    </CatelogueContainer>
-                </MainPanelCatelogue>
-            </Body>
+                <Catelogue catelogue={catelogue} />
+            </Tag.Body>
         </Fragment>
     )
 }

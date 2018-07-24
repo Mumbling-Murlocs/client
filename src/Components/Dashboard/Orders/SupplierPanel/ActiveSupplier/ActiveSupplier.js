@@ -1,15 +1,14 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import Tag from './ActiveSupplier.styles.js'
+import Catelogue from '../../../../../UI/Catelogue/Catelogue'
+
 
 const ActiveSupplier = (props) => {
     const { activeSupplier, catelogue } = props
     return(
-        <Tag.SupplierPanel>
-            <p>{activeSupplier.name}</p> 
-            <p>{activeSupplier.companyType}</p> 
-            <p>{activeSupplier.address}</p> 
-            
-        </Tag.SupplierPanel>
+        <Fragment>
+            <Catelogue padding='0' width="100%" catelogue={catelogue} />
+        </Fragment>
     )
 }
 
