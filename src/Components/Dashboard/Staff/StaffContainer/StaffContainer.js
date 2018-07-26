@@ -71,7 +71,7 @@ class StaffContainer extends Component {
                     
                 </Header>
                 <BodyWindow>
-                    <Route exact path='/dashboard/staff/all' render={() => (
+                    <Route exact path='/dashboard/staff' render={() => (
                         <AllStaff />
                     )} />
                     <Route path='/dashboard/staff/new' render={() => (

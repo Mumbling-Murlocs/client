@@ -1,13 +1,16 @@
 import React from 'react'
 import {Body} from './AllStaff.styles'
+import StaffCard from './StaffCard'
 
 
-const AllStaff = () => {
+
+const AllStaff = (props) => {
+    const {staffArray} = props
+
     return(
         <Body>
             <div>
-                <h1>yo</h1>
-            {/* { Array.isArray(staffArray) && staffArray.map(product => <Product product={product}/>)} */}
+            { Array.isArray(staffArray) && staffArray.map(staff => <StaffCard staff={staff}/>)}
             </div>
         </Body>  
     )
