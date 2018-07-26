@@ -21,7 +21,7 @@ const Catelogue = (props) => {
                         <Tag.Row>
                             <Tag.Col width='150px'><strong>Product Image</strong></Tag.Col>
                             <Tag.Col><strong>Product Name</strong></Tag.Col>
-                            <Tag.Col><strong>Product Description</strong></Tag.Col>
+                            {!props.description && <Tag.Col><strong>Product Description</strong></Tag.Col>}
                             <Tag.Col><strong>Product ID</strong> (SKU)</Tag.Col>
                             <Tag.Col><strong>Stock Qty</strong></Tag.Col>
                             <Tag.Col><strong>Price</strong></Tag.Col>
@@ -29,15 +29,13 @@ const Catelogue = (props) => {
                     </Tag.HeadPanel>
                 <Tag.Products>
                   
-
-
                     {Array.isArray(props.catelogue) && props.catelogue.map(product => {
                         return (
                             <Tag.ProductPanel>
                                 <Tag.Row>
                                     <Tag.Img />
                                     <Tag.Col >{product.name}</Tag.Col>
-                                    <Tag.Col>{(product.description.length > 50) ? product.description = product.description.substring(0, 50) + '...' : product.description}</Tag.Col>
+                                    {!props.description && <Tag.Col>{(product.description.length > 50) ? product.description = product.description.substring(0, 50) + '...' : product.description}</Tag.Col>}
                                     <Tag.Col>{product.productId}</Tag.Col>
                                     <Tag.Col>{product.stockQty}</Tag.Col>
                                     <Tag.Col>{product.price}</Tag.Col>

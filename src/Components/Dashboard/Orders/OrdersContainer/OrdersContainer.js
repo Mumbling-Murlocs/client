@@ -2,9 +2,8 @@ import React, { Component, Fragment } from 'react'
 import {  BodyWindow, Header} from './OrdersContainer.styles'
 import { Route } from 'react-router-dom'
 import NewOrder from '../NewOrder/NewOrder'
-import helpers from '../../../../Helpers'
 import store from '../../../../Redux/store'
-const { api } = helpers
+import {api} from '../../../../Helpers'
 
 
 

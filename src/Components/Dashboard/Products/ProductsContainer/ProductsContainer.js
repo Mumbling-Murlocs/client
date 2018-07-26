@@ -4,12 +4,11 @@ import { Route } from 'react-router-dom'
 import NewProduct from '../NewProduct/NewProduct'
 import AllProducts from '../AllProducts/AllProducts'
 import store from '../../../../Redux/store'
-import helpers from '../../../../Helpers'
+import {api} from '../../../../Helpers'
 
 
 
 
-const { api } = helpers
 
 class ProductsContainer extends Component {
 

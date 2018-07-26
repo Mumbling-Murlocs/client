@@ -4,10 +4,9 @@ import Register from './Register'
 import Login from './Login'
 import CreateCompany from './CreateCompany'
 import store from '../../Redux/store'
-import helpers from '../../Helpers'
+import {api} from '../../Helpers'
 
 
-const { api } = helpers
 
 
 
