@@ -1,10 +1,11 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, View } from 'react'
 import { setJwt } from '../../Api/init'
 import Register from './Register'
 import Login from './Login'
 import CreateCompany from './CreateCompany'
 import store from '../../Redux/store'
 import helpers from '../../Helpers'
+import StaffContainer from '../Dashboard/Staff/StaffContainer/StaffContainer';
 
 
 const { api } = helpers
@@ -92,11 +93,11 @@ class AuthenticationContainer extends Component {
         // console.log(path) 
         const {loginError} = store.getState()
         return(
-            <Fragment>
-                    {path === '/register' && <Register registerError={loginError} url={path} register={this.authenticate} />}
-                    {path === '/login' && <Login loginError={loginError} url={path} login={this.authenticate} />}
-                    {path === '/create-company' && <CreateCompany createCompany={this.createCompany} />}
-            </Fragment>
+                    <Fragment>
+                            {path === '/register' && <Register registerError={loginError} url={path} register={this.authenticate} />}
+                            {path === '/login' && <Login loginError={loginError} url={path} login={this.authenticate} />}
+                            {path === '/create-company' && <CreateCompany createCompany={this.createCompany} />}
+                    </Fragment>
         )
     }
 }
