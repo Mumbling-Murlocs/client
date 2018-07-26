@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import MenuContainer from '../Menu/MenuContainer/MenuContainer'
 import OrdersContainer from '../Orders/OrdersContainer/OrdersContainer'
 import ProductsContainer from '../Products/ProductsContainer/ProductsContainer'
+import StaffContainer from '../Staff/StaffContainer/StaffContainer'
 import AccountContainer from '../Account/AccountContainer/AccountContainer'
 import SuppliersContainer from '../Suppliers/SuppliersContainer/SuppliersContainer'
 import { DashboardLayout, Header, SidePanel, Window, LogoBackground } from './Dashboard.styles.js'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import logoPath from "../../../Assets/Images/logo.svg"
+import {authorization} from "../../../Helpers"
 
 
 
@@ -36,9 +38,22 @@ class Dashboard extends Component {
                     </LogoBackground> 
                         
                         <Route path='/dashboard/orders' component={OrdersContainer} />
-                        <Route path='/dashboard/products' component={ProductsContainer} />
+                        <Route path='/dashboard/products' render={() => {
+                            if (authorization.isSupplier()) {
+                                return(
+                                    <ProductsContainer />
+                                )
+
+                            } else {
+                                return(
+                                    <Redirect to='/dashboard' />
+                                )
+                            }
+                        }} />
                         <Route path='/dashboard/account' component={AccountContainer} />
                         <Route path='/dashboard/suppliers' component={SuppliersContainer} />
+                        <Route path='/dashboard/staff' component={StaffContainer} />
+
                     </Window>
                 </DashboardLayout>
         )

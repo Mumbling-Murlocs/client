@@ -132,6 +132,35 @@ class ApiMethods {
         }
 
     }
+
+    authenticateStaff = async (newStaff, url, func) => {
+        try {
+
+            const response = await axiosApi.post(`/staff/register`, newStaff)
+
+            // const token = response.data.token
+            // const staff = token && decodeJWT(token)
+            // staff.token = token
+
+            // setJwt(staff)
+
+            // store.dispatch({
+            //     type: 'set_loggedIn',
+            //     loggedIn: true,
+            //     currentStaff: staff
+            // })
+
+           // func && func(staff)
+
+          
+        } catch (error) {
+            store.dispatch({
+                type: 'set_loginError',
+                loginError: error.response && error.response.data ? error.response.data : ''
+            })
+        }
+
+    }
     
 }
 
@@ -140,7 +169,9 @@ const orders = new ApiMethods('/orders')
 const products = new ApiMethods('/products')
 const company = new ApiMethods('/company')
 const user = new ApiMethods('/users')
+const staff = new ApiMethods('/staff')
+
 // const products = new ApiMethods('http://localhost:3001/delivery-day')
 
 
-export default { orders, products, company, user }
+export default { orders, products, company, user, staff }

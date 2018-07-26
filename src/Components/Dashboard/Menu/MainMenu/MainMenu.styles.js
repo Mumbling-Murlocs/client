@@ -20,9 +20,16 @@ const MainMenuStyle = styled.div`
 `
 
 const MainMenuLink = Default.Link.extend`
+    font-size: 1.2rem;
+    
+`
+const SignOutLink = MainMenuLink.extend`
+    margin-top: auto;
+    margin-bottom: 40px;
 `
 
 export { 
     MainMenuStyle,
-    MainMenuLink
+    MainMenuLink,
+    SignOutLink
  } 

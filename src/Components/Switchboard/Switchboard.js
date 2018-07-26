@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import AuthenticationContainer from '../Authentication/AuthenticationContainer'
+import StaffContainer from '../Dashboard/Staff/StaffContainer/StaffContainer'
 import Dashboard from '../Dashboard/DashboardContainer/DashboardContainer'
 import store from '../../Redux/store'
 
@@ -30,6 +31,14 @@ const Switchboard = (props) => {
 
                     <Route path='/login' render={(rProps) => (
                         <AuthenticationContainer {...rProps}  />
+                    )} />
+
+                    {/* <Route path='/dashboard/staff/new' render={(rProps) => (
+                        <StaffContainer {...rProps}  />
+                    )} /> */}
+
+                    <Route path='/staffLogin' render={(rProps) => (
+                        <StaffContainer {...rProps}  />
                     )} />
 
                     <Route path='/create-company' render={(rProps) => {
