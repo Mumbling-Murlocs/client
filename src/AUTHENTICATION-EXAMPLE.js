@@ -17,7 +17,7 @@ class App extends Component {
     loginError: null,
     tokenDetails: null,
     loggedIn: false,
-    users: null
+    users: null,
   }
 
 
