@@ -6,15 +6,12 @@ import StaffRegister from './StaffRegister'
 import StaffLogin from './StaffLogin'
 import store from '../../../../Redux/store'
 import helpers from '../../../../Helpers'
+import AllStaff from '../AllStaff/AllStaff'
 
 
 const { api } = helpers
 
-
-
-
 class StaffContainer extends Component {
-
     // These 'StoreStaff' functions are to set and retrieve data form localStorage in the staff browser
     get storeStaff() {
         return localStorage.staff && JSON.parse(localStorage.staff)
@@ -63,19 +60,28 @@ class StaffContainer extends Component {
         this.expiryCheck()
     }
 
+    render(){
 
-    render() {
-        const {path} = this.props.match
-        // console.log('THIS.PROPS IN AC', this.props)
-        // console.log(path) 
+        const {path} = this.props.match        
         const {loginError} = store.getState()
-        return(
+
+        return (
             <Fragment>
-                    {path === '/dashboard/staff/new' && <StaffRegister registerError={loginError} url={path} register={this.authenticate} />}
-                    {/* {path === 'staffLogin' && <StaffLogin loginError={loginError} url={path} login={this.authenticate} />} */}
+                <Header>
+                    
+                </Header>
+                <BodyWindow>
+                    <Route exact path='/dashboard/staff/all' render={() => (
+                        <AllStaff />
+                    )} />
+                    <Route path='/dashboard/staff/new' render={() => (
+                        <StaffRegister registerError={loginError} url="/staff/register" register={this.authenticate} />
+                    )} />
+                </BodyWindow>
             </Fragment>
         )
     }
 }
+
 
 export default StaffContainer
