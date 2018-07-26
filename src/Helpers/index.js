@@ -1,10 +1,10 @@
 import api from './api'
 import authorization from './authorization'
 
-const helpers = {
+
+ 
+
+export {
     api,
     authorization
 }
- 
-
-export default helpers

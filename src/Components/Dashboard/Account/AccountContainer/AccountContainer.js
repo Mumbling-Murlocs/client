@@ -3,8 +3,7 @@ import { Header, BodyWindow } from './AccountContainer.styles'
 import { Route } from 'react-router-dom'
 import MyAccount from '../MyAccount/MyAccount'
 import store from '../../../../Redux/store'
-import helpers from '../../../../Helpers/'
-const {api} = helpers
+import {api} from '../../../../Helpers/'
 
 class ProductsContainer extends Component {
 

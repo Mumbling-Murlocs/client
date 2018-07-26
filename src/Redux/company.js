@@ -16,7 +16,7 @@ const companyCrud = (state, action) => {
             return { ...state, currentUser: { ...currentUser, company: updated } }
 
         case 'all_suppliers':
-            const suppliers = all.filter(supplier => supplier.accountType === 'supplier')
+            const suppliers = all.filter(supplier => supplier.accountType === 'supplier' && supplier._id !== currentUser.company._id)
             
             return { ...state, suppliers: suppliers }
 

@@ -2,10 +2,9 @@ import React, { Component, Fragment } from 'react'
 import { BodyWindow, Header } from './SuppliersContainer.styles'
 import { Route, Redirect } from 'react-router-dom'
 import AllSuppliers from '../AllSuppliers/AllSuppliers'
-import helpers from '../../../../Helpers'
+import {api} from '../../../../Helpers'
 import store from '../../../../Redux/store'
 import ViewSupplier from '../ViewSupplier/ViewSupplier';
-const { api } = helpers
 
 
 

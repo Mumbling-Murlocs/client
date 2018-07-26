@@ -1,5 +1,5 @@
 
-
+import store from '../Redux/store'
 
 
 
@@ -37,4 +37,9 @@ const canDelete = (objId, checkId) => {
     return null
 }
 
-export default {isTeacher, isOwner, isAdmin, canDelete}
+const isSupplier = () => {
+    return store.getState().currentUser.company.accountType === 'supplier' ? true : false
+}
+
+
+export default { isTeacher, isOwner, isAdmin, canDelete, isSupplier}
